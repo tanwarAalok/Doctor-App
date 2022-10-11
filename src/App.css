@@ -1,0 +1,84 @@
+
+.main-div {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.NavLink {
+  text-decoration: none !important;
+}
+
+/* Specific styles for active links */
+.NavLink-active a {
+  text-decoration: none !important;
+}
+.NavLink-active {
+  text-decoration: none !important;
+  color:  #FF9933;
+  background-color: #FF9933;
+  font-weight: 600;
+}
+.NavLink-active h2 {
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #FF9933;
+  padding: 5px;
+  border-radius: 10px;
+}
+.NavLink-active span {
+  color: #ffffff;
+  font-weight: 600;
+}
+.btn-ripple {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: all ease-in-out 0.5s;
+}
+
+.btn-ripple::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  height: 100%;
+  width: 50%;
+  background-color: #000;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all ease-in-out 0.5s;
+  transform: scale(5, 5);
+}
+
+.btn-ripple:active::after {
+  padding: 0;
+  margin: 0;
+  opacity: 0.2;
+  transition: 0s;
+  transform: scale(0, 0);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 1px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FF9933;
+  border-radius: 1px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f7a859;
+}
