@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-//Common import
+import Navbar from "./components/Navbar/Navbar";
 import Landing from "../src/components/Landing/Landing";
 import SideBar from "./components/SideBar/SideBar";
 import ClientDashboard from "./components/Dashboard/Dashboard";

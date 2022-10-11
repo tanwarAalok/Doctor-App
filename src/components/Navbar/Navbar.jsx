@@ -9,11 +9,6 @@ const Navbar = () => {
     <div className="navbar-main">
       <img src={Logo} alt="Logo" className="navLogo" />
       <p className="navLogo-name" onClick={() => navigate("/")}>Rent Out</p>
-      {/* <p className="navRegister"  onClick={() => navigate("/register")}>
-        Dont have an account? <b style={{ color: "#385E54" }}>Register</b>{" "}
-       
-      </p> */}
-      {/* <img src={Face} alt="Logo" className="navRegisterLogo" />{" "} */}
     </div>
   );
 };

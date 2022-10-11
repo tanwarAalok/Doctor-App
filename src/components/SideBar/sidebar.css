@@ -1,11 +1,12 @@
 .sidebar-main {
   position: fixed !important;
   height: 100%;
+  width: 24%;
   background: #ffff;
-  width: 230px;
+  /* width: 350px; */
   transition: 0.1s ease-in-out;
   margin-top: -4em;
-
+  box-shadow: 2px 0px 12px rgba(0, 0, 0, 0.25);
 }
 .sidebar-main-collapse {
   height: 100%;
@@ -18,87 +19,40 @@
   margin-top: -4em;
 }
 .menu-item-sidebar {
-  color:  #FF9933;
-  margin: 5px 10px 12px -10px;
+  color:  #121212;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 400;
-  white-space: nowrap;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 122%;
+  padding: 10px 15px;
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
 }
-/* .menu-item-sidebar:hover,
-.sidebar-setting:hover,
-.menu-item-sidebar-hide:hover,
-.sidebar-setting-hide:hover {
-  color: #FF9933 !important;
+.menu-item-sidebar > :first-child{
+  align-self: flex-start;
+  width: 15%;
+}
+.menu-item-sidebar > :last-child{
+  width: 85%;
+  margin-top: 2px;
+}
 
-  width: 100% !important;
-  font-weight: 600;
-} */
-.sidebar-setting {
-  color:  #FF9933 !important;
-  margin: 5px 10px 0px 9px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
-  white-space: nowrap;
-}
-.menu-item-sidebar-hide {
-  color: #FF9933 !important;
-  margin: 5px 10px 12px 10px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
-  white-space: nowrap;
-}
-.sidebar-setting-hide {
-  color: #FF9933 !important;
-  margin: 5px 10px 0px 2px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
-  white-space: nowrap;
-}
 
 .menu-item-header {
-  color:  #FF9933 !important;
-  margin: 5px 9px -2px -16px;
+  color: #000000;
   cursor: pointer;
-  font-size: 20px;
-  font-weight: 600;
   white-space: nowrap;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  margin: 2px 0;
 }
+
 .sidebarLogo {
-  width: 50px;
-  margin: 0px -15px -5px 0px;
-}
-.sidebarLogo-hide {
-  width: 50px;
-  margin: 0px 35px -5px 10px;
-}
-
-.collapse-icon {
-  position: fixed;
-  cursor: pointer;
-  margin-left: 12.8em;
-  margin-top: 2em;
-  transform: rotate(0deg);
-  transform-origin: 50% 50%;
-  transition: 0.6s ease-in-out;
-}
-.collapse-icon:hover,
-.collapse-hide-icon:hover {
-  filter: brightness(79%);
-  /* transform: rotate(45deg) rotate(134deg) rotate(134deg) rotate(42deg);
-  transform-origin: 50% 50%; 
-  transition:  1s ease-in-out; */
-}
-
-.collapse-hide-icon {
-  position: fixed;
-  cursor: pointer;
-  margin-left: 5em;
-  margin-top: 2em;
-  transform: rotate(45deg) rotate(134deg);
-  transform-origin: 50% 50%;
-  transition: 0.6s ease-in-out;
+  width: 45.29px;
+  height: 42px;
 }
