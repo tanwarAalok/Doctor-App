@@ -1,23 +1,29 @@
-import React, { createContext, useState } from "react";
+import React from "react";
 import "./App.css";
-import { BrowserRouter as Router} from "react-router-dom";
-import Export from "./Export";
-const UserContext = createContext();
+import {  Route, Routes} from "react-router-dom";
+import Landing from "./components/Landing/Landing";
+import ClientDashboard from "./components/Dashboard/Dashboard";
+import PatientManage from "./components/PatientManage/PatientManage";
+import DoctorManage from "./components/DoctorManage/DoctorManage";
+import PharmaManage from "./components/PharmaManage/PharmaComponent";
+import AmbulanceComponent from "./components/Ambulance/AmbulanceComponent";
+import CriteriaComponent from "./components/Criteria/CriteriaComponent";
+
+
 function App() {
-  const [show, setShow] = useState(false);
-  let u = localStorage.getItem("user");
-  let user = JSON.parse(u);
   return (
-    <UserContext.Provider value={{ show: show, setShow: setShow }}>
-      <div className="app-main">
-        <Router>
-         <Export show={show}/>
-        </Router>
-      </div>
-    </UserContext.Provider>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/dashboard" element={<ClientDashboard />} />
+      <Route path="/patients" element={<PatientManage />} />
+      <Route path="/doctors" element={<DoctorManage />} />
+      <Route path="/pharma" element={<PharmaManage />} />
+      <Route path="/ambulance" element={<AmbulanceComponent />} />
+      <Route path="/criteria" element={<CriteriaComponent />} />
+    </Routes>
   );
 }
 
 export default App;
-export { UserContext };
+// export { UserContext };
 

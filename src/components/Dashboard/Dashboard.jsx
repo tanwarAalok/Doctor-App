@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import AdminNavbar from "../AdminNavbar/AdminNavbar";
 import { Bar } from "react-chartjs-2";
 import RevenueIcon from "../../assets/revenueIcon.svg";
+import SideBar from "../SideBar/SideBar";
 
 const monthsArray = Array.from({ length: 12 }, (item, i) => {
   return new Date(0, i).toLocaleString("en-US", { month: "long" });
@@ -23,6 +24,7 @@ const ClientDashboard = () => {
 
   return (
     <>
+      <SideBar/>
       <AdminNavbar />
       <div className="main-div">
         <h1 className="heading">Dashboard</h1>
