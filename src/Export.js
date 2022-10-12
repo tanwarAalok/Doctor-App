@@ -3,16 +3,21 @@ import Navbar from "./components/Navbar/Navbar";
 import Landing from "../src/components/Landing/Landing";
 import SideBar from "./components/SideBar/SideBar";
 import ClientDashboard from "./components/Dashboard/Dashboard";
-import UserManage from "./components/UserManage/UserManage";
-import UserAds from "./components/UserManage/UserAds";
-import EditAds from "./components/UserManage/EditAds";
-import Revenue from "./components/Revenue/Revenue";
-import PlanManage from "./components/PlanManage/PlanManage";
-import Feedback from "./components/Feedback/Feedback";
-import SubAdmin from "./components/SubAdmin/SubAdmin";
-import Addsub from "./components/SubAdmin/Addsub";
-import Editsub from "./components/SubAdmin/Editsub";
+import UserManage from "./components/PatientManage/PatientManage";
+import UserAds from "./components/PatientManage/UserAds";
+import EditAds from "./components/PatientManage/EditAds";
+import Revenue from "./components/DoctorManage/DoctorManage";
+import PlanManage from "./components/PharmaManage/PlanManage";
+import Feedback from "./components/Ambulance/Feedback";
+import SubAdmin from "./components/Criteria/SubAdmin";
+import Addsub from "./components/Criteria/Addsub";
+import Editsub from "./components/Criteria/Editsub";
 import { Col, Row } from "react-bootstrap";
+import DoctorManage from "./components/DoctorManage/DoctorManage";
+import PharmaManage from "./components/PharmaManage/PharmaComponent";
+import AmbulanceComponent from "./components/Ambulance/AmbulanceComponent";
+import CriteriaComponent from "./components/Criteria/CriteriaComponent";
+import PatientManage from "./components/PatientManage/PatientManage";
 function Export({ show }) {
   let u = localStorage.getItem("user");
   let user = JSON.parse(u);
@@ -32,8 +37,6 @@ function Export({ show }) {
           <Route path="/" element={<Landing />} />
           <Route path="*" element={<Landing />} />
 
-          {/* Clientside */}
-
           <Route
             exact
             path="/dashboard"
@@ -42,30 +45,38 @@ function Export({ show }) {
 
           <Route
             exact
-            path="/usermanage"
-            element={user?.users && <UserManage />}
+            path="/patients"
+            element={user?.users && <PatientManage />}
           />
           <Route
             exact
             path="/usermanage/:id"
             element={user?.users && <UserAds />}
           />
-           <Route
+          <Route
             exact
             path="/editads/:id"
             element={user?.users && <EditAds />}
           />
-          <Route exact path="/revenue" element={user?.revenue && <Revenue />} />
-          <Route exact path="/plans" element={user?.plans && <PlanManage />} />
           <Route
             exact
-            path="/feedback"
-            element={user?.feedback && <Feedback />}
+            path="/doctors"
+            element={user?.revenue && <DoctorManage />}
           />
           <Route
             exact
-            path="/subadmin"
-            element={user?.isSubadmin && <SubAdmin />}
+            path="/pharma"
+            element={user?.plans && <PharmaManage />}
+          />
+          <Route
+            exact
+            path="/ambulance"
+            element={user?.feedback && <AmbulanceComponent />}
+          />
+          <Route
+            exact
+            path="/criteria"
+            element={user?.isSubadmin && <CriteriaComponent />}
           />
           <Route
             exact

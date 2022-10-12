@@ -22,12 +22,9 @@ const DashTable = ({ user, page,setUpdate }) => {
         <Table className="report-table-main mb-5">
           <thead>
             <tr className="Rtable-header">
-              <th>S.no</th>
-              <th>User Name</th>
-              <th>E-mail</th>
-              <th>Contact</th>
-              <th>Location</th>
-              <th>Plan</th>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Email ID</th>
               <th>Action</th>
             </tr>
           </thead>
