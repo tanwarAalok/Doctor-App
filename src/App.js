@@ -8,7 +8,9 @@ import DoctorManage from "./components/DoctorManage/DoctorManage";
 import PharmaManage from "./components/PharmaManage/PharmaComponent";
 import AmbulanceComponent from "./components/Ambulance/AmbulanceComponent";
 import CriteriaComponent from "./components/Criteria/CriteriaComponent";
-import ProfileComponent from "./components/ProfilePage/ProfileComponent";
+import PatientDetail from "./components/DetailsPage/PatientDetailComponent";
+import DoctorsDetail from "./components/DetailsPage/DoctorDetails";
+import PharmaDetail from "./components/DetailsPage/PharmaDetails";
 
 
 function App() {
@@ -21,11 +23,12 @@ function App() {
       <Route path="/pharma" element={<PharmaManage />} />
       <Route path="/ambulance" element={<AmbulanceComponent />} />
       <Route path="/criteria" element={<CriteriaComponent />} />
-      <Route path="/profile" element={<ProfileComponent />} />
+      <Route path="/patientDetails" element={<PatientDetail />} />
+      <Route path="/doctorDetails" element={<DoctorsDetail />} />
+      <Route path="/pharmaDetails" element={<PharmaDetail />} />
     </Routes>
   );
 }
 
 export default App;
-// export { UserContext };
 

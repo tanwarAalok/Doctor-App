@@ -1,12 +1,12 @@
-import React from 'react'
-import AdminNavbar from '../AdminNavbar/AdminNavbar';
-import SideBar from '../SideBar/SideBar';
-import TableComponent from '../Tables/TableComponent';
+import React from "react";
+import AdminNavbar from "../AdminNavbar/AdminNavbar";
+import SideBar from "../SideBar/SideBar";
+import TableComponent from "../Tables/PatientsData";
 
 const AmbulanceComponent = () => {
   return (
     <>
-      <SideBar/>
+      <SideBar />
       <AdminNavbar />
       <div className="main-div">
         <h1 className="heading">Ambulance Management</h1>
@@ -16,6 +16,6 @@ const AmbulanceComponent = () => {
       </div>
     </>
   );
-}
+};
 
-export default AmbulanceComponent
+export default AmbulanceComponent;

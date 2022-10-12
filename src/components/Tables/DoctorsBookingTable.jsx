@@ -46,7 +46,7 @@ const dummy = [
     }
 ]
 
-const PreviousBookingTable = () => {
+const DoctorsBookingTable = () => {
   return (
     <Table style={{cursor: "pointer"}} hover responsive>
       <thead>
@@ -73,4 +73,4 @@ const PreviousBookingTable = () => {
   );
 }
 
-export default PreviousBookingTable
+export default DoctorsBookingTable;
