@@ -1,27 +1,13 @@
-import React, { useEffect, useContext } from "react";
-import { UserContext } from "../../App";
+import React from "react";
 import "react-bootstrap-drawer/lib/style.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Drawer } from "react-bootstrap-drawer";
 import Logo from "../../assets/cardiogram.png";
-import Cookies from "js-cookie";
 import LogoutIcon from "../../assets/logout icon.png";
-import { RiDashboardFill } from "react-icons";
 import "./sidebar.css";
 
 
 const SideBar = () => {
-  const { show, setShow } = useContext(UserContext);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!Cookies.get("RentOutToken")) {
-      navigate("/");
-      window.location.reload();
-    }
-  }, []);
-
-  let u = localStorage.getItem("user");
-  let user = JSON.parse(u);
   return (
     <Drawer className="sidebar-main">
       <Drawer.Overflow>
@@ -38,7 +24,6 @@ const SideBar = () => {
           </Drawer.Header>
           <hr style={{ color: "#CACACA", margin: "1.25rem 0" }} />
           <Drawer.Nav>
-            {user?.dashboard && (
               <Drawer.Item className="hover">
                 <NavLink
                   exact
@@ -67,8 +52,6 @@ const SideBar = () => {
                   </div>
                 </NavLink>
               </Drawer.Item>
-            )}
-            {user?.users && (
               <Drawer.Item>
                 <NavLink
                   to="/patients"
@@ -95,8 +78,6 @@ const SideBar = () => {
                   </div>
                 </NavLink>
               </Drawer.Item>
-            )}
-            {user?.revenue && (
               <Drawer.Item>
                 <NavLink
                   to="/doctors"
@@ -123,8 +104,6 @@ const SideBar = () => {
                   </div>
                 </NavLink>
               </Drawer.Item>
-            )}
-            {user?.plans && (
               <Drawer.Item>
                 <NavLink
                   to="/pharma"
@@ -151,8 +130,6 @@ const SideBar = () => {
                   </div>
                 </NavLink>
               </Drawer.Item>
-            )}
-            {user?.feedback && (
               <Drawer.Item>
                 <NavLink
                   to="/ambulance"
@@ -179,8 +156,6 @@ const SideBar = () => {
                   </div>
                 </NavLink>
               </Drawer.Item>
-            )}
-            {user?.isSubadmin && (
               <Drawer.Item>
                 <NavLink
                   to="/criteria"
@@ -207,7 +182,6 @@ const SideBar = () => {
                   </div>
                 </NavLink>
               </Drawer.Item>
-            )}
             <hr style={{ marginTop: "80px" }} />
             <Drawer.Item>
               <NavLink
