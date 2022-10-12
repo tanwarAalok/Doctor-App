@@ -1,11 +1,23 @@
 *{
   font-family: 'Poppins';
 }
+.div-c{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-apart{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .main-div {
   padding-left: 0.938rem;
   margin-left: 24%;
 }
+
 
 .heading{
   font-weight: 600;
@@ -14,9 +26,10 @@
   margin: 1.25rem;
 }
 
-.NavLink {
+.NavLink, a {
   text-decoration: none !important;
-  color: #121212;
+  color: #121212 !important;
+  opacity: 0.9 !important;
 }
 
 /* Specific styles for active links */

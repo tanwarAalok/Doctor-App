@@ -8,6 +8,7 @@ import DoctorManage from "./components/DoctorManage/DoctorManage";
 import PharmaManage from "./components/PharmaManage/PharmaComponent";
 import AmbulanceComponent from "./components/Ambulance/AmbulanceComponent";
 import CriteriaComponent from "./components/Criteria/CriteriaComponent";
+import ProfileComponent from "./components/ProfilePage/ProfileComponent";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/pharma" element={<PharmaManage />} />
       <Route path="/ambulance" element={<AmbulanceComponent />} />
       <Route path="/criteria" element={<CriteriaComponent />} />
+      <Route path="/profile" element={<ProfileComponent />} />
     </Routes>
   );
 }

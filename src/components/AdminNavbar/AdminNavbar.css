@@ -1,8 +1,8 @@
 .admin-navbar-container{
     width: 76%;
-    height: 90px;
+    height: 70px;
     margin-left: 24%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
