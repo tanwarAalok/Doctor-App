@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const DummyData = [
   {
@@ -45,22 +45,24 @@ const AmbulanceData = () => {
   const navigate = useNavigate();
   return (
     <Table borderless responsive hover>
-      <tr
-        style={{
-          fontWeight: "500",
-          fontSize: "1.1rem",
-          lineHeight: "100%",
-          background: "#e6f4f4",
-          textAlign: "center",
-          height: "3rem",
-          borderBottom: "none",
-        }}
-      >
-        <th>Name</th>
-        <th>Phone Number</th>
-        <th>Type of Ambulance</th>
-        <th>Action</th>
-      </tr>
+      <thead>
+        <tr
+          style={{
+            fontWeight: "500",
+            fontSize: "1.1rem",
+            lineHeight: "100%",
+            background: "#e6f4f4",
+            textAlign: "center",
+            height: "3rem",
+            borderBottom: "none",
+          }}
+        >
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Type of Ambulance</th>
+          <th>Action</th>
+        </tr>
+      </thead>
       <tbody>
         {DummyData.map((data, id) => (
           <tr

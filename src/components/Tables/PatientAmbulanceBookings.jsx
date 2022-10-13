@@ -1,5 +1,7 @@
 import React from "react";
+import { useState } from "react";
 import { Table } from "react-bootstrap";
+import AmbulancePatientPopup from "../PopupPage/AmbulancePatientPopup";
 
 const dummy = [
   {
@@ -51,33 +53,37 @@ const dummy = [
 ];
 
 const PatientAmbulanceBookings = () => {
+  const [trigger, setTrigger] = useState(false);
   return (
-    <Table style={{ cursor: "pointer" }} hover responsive>
-      <thead>
-        <tr style={{ textAlign: "center" }}>
-          <th>Name</th>
-          <th>Booking Date</th>
-          <th>Amb No.</th>
-          <th>DL No.</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {dummy.map((data, id) => (
-          <tr style={{ textAlign: "center" }} key={id}>
-            <td>{data.name}</td>
-            <td>{data.bdate}</td>
-            <td>{data.ambno}</td>
-            <td>{data.dlno}</td>
-            <td>{data.from}</td>
-            <td>{data.to}</td>
-            <td>{data.Status}</td>
+    <>
+      <Table style={{ cursor: "pointer" }} hover responsive>
+        <thead>
+          <tr style={{ textAlign: "center" }}>
+            <th>Name</th>
+            <th>Booking Date</th>
+            <th>Amb No.</th>
+            <th>DL No.</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Status</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {dummy.map((data, id) => (
+            <tr onClick={() => setTrigger(true)} style={{ textAlign: "center" }} key={id}>
+              <td>{data.name}</td>
+              <td>{data.bdate}</td>
+              <td>{data.ambno}</td>
+              <td>{data.dlno}</td>
+              <td>{data.from}</td>
+              <td>{data.to}</td>
+              <td>{data.Status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      {trigger ? <AmbulancePatientPopup setTrigger={setTrigger}/> : ""}
+    </>
   );
 };
 

@@ -5,6 +5,7 @@
   align-self: flex-start;
   justify-content: space-around;
   margin-bottom: 1.25rem;
+  padding: 5px;
 }
 .dashboardCards{
   width: 11.5625rem;

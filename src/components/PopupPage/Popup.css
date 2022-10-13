@@ -1,0 +1,53 @@
+.popup-container{
+    height: 88vh;
+    width: 80vw;
+    margin: 0px 10%;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    position: absolute;
+    top: 10vh;
+    left: 1vw;
+    z-index: 10;
+    background-color: white;
+}
+
+.popup-container > svg{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.popup-container > div {
+    width: 33%;
+    padding: 18px 10px;
+}
+
+.pp{
+    padding: 100px 10px !important;
+}
+
+.middle-div-popup{
+    padding: 15px !important;
+    height: 150px;
+    width: 29% !important;
+    margin: 50px 2%;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    text-align: center;
+    flex-direction: column;
+}
+.popup-h2{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 122%;
+    text-transform: capitalize;
+}
+
+.popup-p{
+    font-weight: 500;
+    font-size: 16px;
+}

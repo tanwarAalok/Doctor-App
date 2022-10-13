@@ -182,7 +182,7 @@ const SideBar = () => {
                   </div>
                 </NavLink>
               </Drawer.Item>
-            <hr style={{ marginTop: "80px" }} />
+            <hr style={{ marginTop: "60px" }} />
             <Drawer.Item>
               <NavLink
                 to="/"

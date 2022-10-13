@@ -5,16 +5,20 @@ import PharmaData from "../Tables/PharmaDataTable";
 
 const PharmaManage = () => {
   return (
-    <>
-      <SideBar />
-      <AdminNavbar />
-      <div className="main-div">
-        <h1 className="heading">Pharma Management</h1>
-        <div className="table-container">
-          <PharmaData />
+    <div className="parent">
+      <div>
+        <SideBar />
+      </div>
+      <div>
+        <AdminNavbar />
+        <div className="main-div">
+          <h1 className="heading">Pharma Management</h1>
+          <div className="table-container">
+            <PharmaData />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

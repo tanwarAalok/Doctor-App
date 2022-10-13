@@ -5,26 +5,30 @@ import "./Criteria.css"
 
 const CriteriaComponent = () => {
   return (
-    <>
-      <SideBar />
-      <AdminNavbar />
-      <div className="main-div">
-        <h1 className="heading">Criteria</h1>
-        <div className="main-criteria-div">
-          <div>
+    <div className="parent">
+      <div>
+        <SideBar />
+      </div>
+      <div>
+        <AdminNavbar />
+        <div className="main-div">
+          <h1 className="heading">Criteria</h1>
+          <div className="main-criteria-div">
             <div>
-              <h1 className='heading'>Doctor's %</h1>
-              <input type="number" />
+              <div>
+                <h1 className="heading">Doctor's %</h1>
+                <input type="number" />
+              </div>
+              <div>
+                <h1 className="heading">Admin's %</h1>
+                <input type="number" />
+              </div>
             </div>
-            <div>
-              <h1 className='heading'>Admin's %</h1>
-              <input type="number" />
-            </div>
+            <button>Submit</button>
           </div>
-          <button>Submit</button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

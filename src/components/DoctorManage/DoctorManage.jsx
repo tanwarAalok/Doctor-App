@@ -5,16 +5,20 @@ import DoctorsData from "../Tables/DoctorDataTable";
 
 const DoctorManage = () => {
   return (
-    <>
-      <SideBar />
-      <AdminNavbar />
-      <div className="main-div">
-        <h1 className="heading">Doctor Management</h1>
-        <div className="table-container">
-          <DoctorsData />
+    <div className="parent">
+      <div>
+        <SideBar />
+      </div>
+      <div>
+        <AdminNavbar />
+        <div className="main-div">
+          <h1 className="heading">Doctor Management</h1>
+          <div className="table-container">
+            <DoctorsData />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
