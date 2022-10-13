@@ -4,9 +4,9 @@ import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import AdminPic from "../../assets/adsimage.png";
 import { Link } from "react-router-dom";
-import DoctorsBookingTable from "../Tables/DoctorBookingTable";
+import AmbulanceBookingTable from "../Tables/AmbulanceBookingTable";
 
-const DoctorsDetail = () => {
+const AmbulanceDetails = () => {
   return (
     <>
       <SideBar />
@@ -131,7 +131,7 @@ const DoctorsDetail = () => {
               </Link>
             </div>
             <div className="profile-table-container">
-              <DoctorsBookingTable />
+              <AmbulanceBookingTable />
             </div>
           </div>
         </div>
@@ -140,4 +140,4 @@ const DoctorsDetail = () => {
   );
 };
 
-export default DoctorsDetail;
+export default AmbulanceDetails;

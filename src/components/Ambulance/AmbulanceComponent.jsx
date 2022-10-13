@@ -1,7 +1,7 @@
 import React from "react";
 import AdminNavbar from "../AdminNavbar/AdminNavbar";
 import SideBar from "../SideBar/SideBar";
-import TableComponent from "../Tables/PatientsData";
+import AmbulanceData from "../Tables/AmbulanceData";
 
 const AmbulanceComponent = () => {
   return (
@@ -11,7 +11,7 @@ const AmbulanceComponent = () => {
       <div className="main-div">
         <h1 className="heading">Ambulance Management</h1>
         <div className="table-container">
-          <TableComponent />
+          <AmbulanceData />
         </div>
       </div>
     </>

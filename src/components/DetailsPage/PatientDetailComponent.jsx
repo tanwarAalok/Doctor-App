@@ -3,7 +3,7 @@ import AdminNavbar from "../AdminNavbar/AdminNavbar";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import AdminPic from "../../assets/adsimage.png";
-import PreviousBookingTable from "../Tables/DoctorsBookingTable";
+import PreviousBookingTable from "../Tables/AmbulanceBookingTable";
 import { Link } from "react-router-dom";
 import PatientBookingTable from "../Tables/PatientBookingTable";
 

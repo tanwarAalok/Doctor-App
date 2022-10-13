@@ -11,6 +11,7 @@ import CriteriaComponent from "./components/Criteria/CriteriaComponent";
 import PatientDetail from "./components/DetailsPage/PatientDetailComponent";
 import DoctorsDetail from "./components/DetailsPage/DoctorDetails";
 import PharmaDetail from "./components/DetailsPage/PharmaDetails";
+import AmbulanceDetails from "./components/DetailsPage/AmbulanceDetails";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <Route path="/patientDetails" element={<PatientDetail />} />
       <Route path="/doctorDetails" element={<DoctorsDetail />} />
       <Route path="/pharmaDetails" element={<PharmaDetail />} />
+      <Route path="/ambulanceDetails" element={<AmbulanceDetails />} />
     </Routes>
   );
 }
