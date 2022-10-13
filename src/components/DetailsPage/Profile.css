@@ -126,6 +126,7 @@
     border: 1px solid black;
     border-radius: 10px;
     height: max-content;
+    overflow: hidden;
 }
 
 .viewButton{
@@ -140,4 +141,30 @@
 .viewButton:hover{
     color: #058E76;
     opacity: 0.8;
+}
+
+
+.mybtn{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 122%;
+    text-transform: capitalize;
+    color: #088F8F !important;
+    opacity: 0.4;
+    margin: 0px 5px;
+    border: 0;
+    background: white;
+}
+
+
+.btn-active{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 122%;
+    color: #088F8F !important;
+    text-decoration: underline !important;
+    opacity: 1;
+    margin: 0px 5px;
+    border: 0;
+    background: white;
 }

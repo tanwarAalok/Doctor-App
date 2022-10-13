@@ -3,11 +3,16 @@ import AdminNavbar from "../AdminNavbar/AdminNavbar";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import AdminPic from "../../assets/adsimage.png";
-import PreviousBookingTable from "../Tables/AmbulanceBookingTable";
 import { Link } from "react-router-dom";
 import PatientBookingTable from "../Tables/PatientBookingTable";
+import { useState } from "react";
+import PatientAmbulanceBookings from "../Tables/PatientAmbulanceBookings";
+import PatientPharmaBookings from "../Tables/PatientPharmaBookings";
 
 const PatientDetail = () => {
+
+  const [table, setTable] = useState("doctor");
+
   return (
     <>
       <SideBar />
@@ -39,9 +44,31 @@ const PatientDetail = () => {
           </div>
 
           <div>
-            <h1 style={{ fontSize: "24px" }} className="heading">
-              Current Booking
-            </h1>
+            <div style={{ display: "flex", marginRight: "10px" }}>
+              <h1 style={{ fontSize: "24px" }} className="heading">
+                Current Booking
+              </h1>
+              <div style={{ display: "flex" }}>
+                <button
+                  onClick={() => setTable("doctor")}
+                  className={table === "doctor" ? "btn-active" : "mybtn"}
+                >
+                  Doctor
+                </button>
+                <button
+                  onClick={() => setTable("pharma")}
+                  className={table === "pharma" ? "btn-active" : "mybtn"}
+                >
+                  Pharma
+                </button>
+                <button
+                  onClick={() => setTable("ambulance")}
+                  className={table === "ambulance" ? "btn-active" : "mybtn"}
+                >
+                  Ambulance
+                </button>
+              </div>
+            </div>
             <div className="profile-card-container">
               <div className="profile-card">
                 <img src={AdminPic} alt="" />
@@ -132,7 +159,13 @@ const PatientDetail = () => {
               </Link>
             </div>
             <div className="profile-table-container">
-              <PatientBookingTable />
+              {table === "doctor" ? (
+                <PatientBookingTable />
+              ) : table === "pharma" ? (
+                <PatientPharmaBookings />
+              ) : (
+                <PatientAmbulanceBookings />
+              )}
             </div>
           </div>
         </div>
