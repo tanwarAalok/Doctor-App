@@ -27,7 +27,7 @@ function App() {
       <Route path="/patient/:patientId" element={<PatientDetail />} />
       <Route path="/doctor/:doctorId" element={<DoctorsDetail />} />
       <Route path="/pharmacy/:pharmaId" element={<PharmaDetail />} />
-      <Route path="/ambulance/:id" element={<AmbulanceDetails />} />
+      <Route path="/ambulance/:ambulanceId" element={<AmbulanceDetails />} />
     </Routes>
   );
 }
