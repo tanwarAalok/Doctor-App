@@ -41,31 +41,34 @@ const DummyData = [
   },
 ];
 
-const PharmaData = () => {
+const PharmaData = ({ data }) => {
+  console.log(data);
   const navigate = useNavigate();
   return (
     <Table borderless responsive hover>
-      <tr
-        style={{
-          fontWeight: "500",
-          fontSize: "1.1rem",
-          lineHeight: "100%",
-          background: "#e6f4f4",
-          textAlign: "center",
-          height: "3rem",
-          borderBottom: "none",
-        }}
-      >
-        <th>Name</th>
-        <th>Phone Number</th>
-        <th>Location</th>
-        <th>Action</th>
-      </tr>
+      <thead>
+        <tr
+          style={{
+            fontWeight: "500",
+            fontSize: "1.1rem",
+            lineHeight: "100%",
+            background: "#e6f4f4",
+            textAlign: "center",
+            height: "3rem",
+            borderBottom: "none",
+          }}
+        >
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Location</th>
+          <th>Action</th>
+        </tr>
+      </thead>
       <tbody>
-        {DummyData.map((data, id) => (
+        {data.map((data, id) => (
           <tr
             key={id}
-            onClick={() => navigate("/pharmaDetails")}
+            onClick={() => navigate(`/pharmacy/${data.userId}`)}
             style={{
               fontWeight: "400",
               fontSize: "1rem",
@@ -74,10 +77,10 @@ const PharmaData = () => {
               cursor: "pointer",
             }}
           >
-            <td>{data.name}</td>
+            <td style={{ textTransform: "capitalize" }}>{data.Pharmacyname}</td>
             <td>{data.phone}</td>
             <td>{data.loc}</td>
-            <td>{data.action}</td>
+            <td>{data.isBlock ? "Block" : "Not Block"}</td>
           </tr>
         ))}
       </tbody>

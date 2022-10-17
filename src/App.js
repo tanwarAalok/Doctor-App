@@ -24,10 +24,10 @@ function App() {
       <Route path="/pharma" element={<PharmaManage />} />
       <Route path="/ambulance" element={<AmbulanceComponent />} />
       <Route path="/criteria" element={<CriteriaComponent />} />
-      <Route path="/patientDetails" element={<PatientDetail />} />
-      <Route path="/doctorDetails" element={<DoctorsDetail />} />
-      <Route path="/pharmaDetails" element={<PharmaDetail />} />
-      <Route path="/ambulanceDetails" element={<AmbulanceDetails />} />
+      <Route path="/patient/:patientId" element={<PatientDetail />} />
+      <Route path="/doctor/:doctorId" element={<DoctorsDetail />} />
+      <Route path="/pharmacy/:pharmaId" element={<PharmaDetail />} />
+      <Route path="/ambulance/:id" element={<AmbulanceDetails />} />
     </Routes>
   );
 }

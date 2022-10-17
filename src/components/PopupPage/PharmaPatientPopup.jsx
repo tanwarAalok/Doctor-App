@@ -54,7 +54,7 @@ const PharmaPatientPopup = ({ setTrigger }) => {
           style={{ width: "35px", height: "35px" }}
           stroke="currentColor"
           fill="currentColor"
-          stroke-width="0"
+          strokeWidth="0"
           viewBox="0 0 1024 1024"
           height="1em"
           width="1em"
@@ -120,7 +120,7 @@ const PharmaPatientPopup = ({ setTrigger }) => {
         onClick={() => setTrigger(false)}
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="0"
+        strokeWidth="0"
         viewBox="0 0 1024 1024"
         height="1em"
         width="1em"

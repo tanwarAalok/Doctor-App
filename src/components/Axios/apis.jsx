@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 const API = axios.create({
-  baseURL: "https://api.rentout.rent",
+  baseURL: "https://doc00.herokuapp.com",
 });
 
 let id = Cookies.get("RentOutToken");
@@ -13,6 +13,13 @@ API.interceptors.request.use((req) => {
 });
 
 export const Signin = (SigninData) => API.post("/admin/adminLogin", SigninData);
+
+export const AllPatients = () => API.get(`/admin/patients?pg=1&1m=10`);
+export const AllDoctors = () => API.get(`/admin/doctors`);
+export const AllPharmas = () => API.get(`/admin/pharmacies`);
+export const AllAmbulance = () => API.get(`/admin/ambulances`);
+
+export const getPatientDetail = (patientId) => API.get(`/admin/patientbyid?${patientId}`);
 
 export const DashUsers = (data) => API.post(`/admin/getUsers`, data);
 export const AllUsers = (data) => API.post(`/admin/getAllUsers`, data);

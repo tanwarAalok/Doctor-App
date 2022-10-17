@@ -3,14 +3,22 @@ import AdminNavbar from "../AdminNavbar/AdminNavbar";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import AdminPic from "../../assets/adsimage.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PatientBookingTable from "../Tables/PatientBookingTable";
 import { useState } from "react";
 import PatientAmbulanceBookings from "../Tables/PatientAmbulanceBookings";
 import PatientPharmaBookings from "../Tables/PatientPharmaBookings";
+import { getPatientDetail } from "../Axios/apis";
 
 const PatientDetail = () => {
 
+  const { patientId } = useParams();
+
+  const fetchData = async() => {
+    const data = await getPatientDetail(patientId);
+    console.log(data.data);
+  }
+  fetchData();
   const [table, setTable] = useState("doctor");
 
   return (
@@ -86,7 +94,7 @@ const PatientDetail = () => {
                         }}
                         stroke="currentColor"
                         fill="currentColor"
-                        stroke-width="0"
+                        strokeWidth="0"
                         viewBox="0 0 1024 1024"
                         height="1em"
                         width="1em"
@@ -112,7 +120,7 @@ const PatientDetail = () => {
                         }}
                         stroke="currentColor"
                         fill="currentColor"
-                        stroke-width="0"
+                        strokeWidth="0"
                         viewBox="0 0 1024 1024"
                         height="1em"
                         width="1em"
@@ -138,7 +146,7 @@ const PatientDetail = () => {
                         }}
                         stroke="currentColor"
                         fill="currentColor"
-                        stroke-width="0"
+                        strokeWidth="0"
                         viewBox="0 0 1024 1024"
                         height="1em"
                         width="1em"

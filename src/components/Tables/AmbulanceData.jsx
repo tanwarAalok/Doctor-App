@@ -41,7 +41,7 @@ const DummyData = [
   },
 ];
 
-const AmbulanceData = () => {
+const AmbulanceData = ({ data }) => {
   const navigate = useNavigate();
   return (
     <Table borderless responsive hover>
@@ -64,10 +64,10 @@ const AmbulanceData = () => {
         </tr>
       </thead>
       <tbody>
-        {DummyData.map((data, id) => (
+        {data.map((data, id) => (
           <tr
             key={id}
-            onClick={() => navigate("/ambulanceDetails")}
+            onClick={() => navigate(`/ambulance/${data.userId}`)}
             style={{
               fontWeight: "400",
               fontSize: "1rem",
@@ -76,10 +76,10 @@ const AmbulanceData = () => {
               cursor: "pointer",
             }}
           >
-            <td>{data.name}</td>
-            <td>{data.phone}</td>
-            <td>{data.toa}</td>
-            <td>{data.action}</td>
+            <td>{data.driverName}</td>
+            <td>{data.phoneNumber}</td>
+            <td>{data.Ambulancetype}</td>
+            <td>{data.action ? "Block" : "Not Block"}</td>
           </tr>
         ))}
       </tbody>

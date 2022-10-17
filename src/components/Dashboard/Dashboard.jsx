@@ -69,7 +69,7 @@ const ClientDashboard = () => {
                   style={{ color: "#FF0404" }}
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 448 512"
                   height="1em"
                   width="1em"
@@ -88,7 +88,7 @@ const ClientDashboard = () => {
                   style={{ color: "#0094FF" }}
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 448 512"
                   height="1em"
                   width="1em"
@@ -107,7 +107,7 @@ const ClientDashboard = () => {
                   style={{ color: "#0EAE00" }}
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -126,7 +126,7 @@ const ClientDashboard = () => {
                   style={{ color: "#FF6B00" }}
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 640 512"
                   height="1em"
                   width="1em"
@@ -145,7 +145,7 @@ const ClientDashboard = () => {
                   style={{ color: "#DB00FF" }}
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
