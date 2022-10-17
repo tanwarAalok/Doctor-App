@@ -67,7 +67,7 @@ const DoctorsData = ({ data }) => {
         {data.map((data, id) => (
           <tr
             key={id}
-            onClick={() => navigate(`/doctor/${data.userId}`)}
+            onClick={() => navigate(`/doctor/${data._id}`)}
             style={{
               fontWeight: "400",
               fontSize: "1rem",

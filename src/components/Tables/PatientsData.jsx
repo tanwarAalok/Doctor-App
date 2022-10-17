@@ -47,7 +47,7 @@ const DummyData = [
   },
 ];
 
-const PatientsData = ({data}) => {
+const PatientsData = ({ data }) => {
   const navigate = useNavigate();
 
   return (
@@ -74,7 +74,7 @@ const PatientsData = ({data}) => {
         {data.map((data, id) => (
           <tr
             key={id}
-            onClick={() => navigate(`/patient/${data.userId}`)}
+            onClick={() => navigate(`/patient/${data.id}`)}
             style={{
               fontWeight: "400",
               fontSize: "1rem",

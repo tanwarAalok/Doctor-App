@@ -46,6 +46,7 @@
   font-size: 1.5rem;
   line-height: 122%;
   margin: 1.24rem;
+  text-transform: capitalize;
 }
 
 .NavLink, a {

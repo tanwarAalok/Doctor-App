@@ -19,24 +19,14 @@ export const AllDoctors = () => API.get(`/admin/doctors`);
 export const AllPharmas = () => API.get(`/admin/pharmacies`);
 export const AllAmbulance = () => API.get(`/admin/ambulances`);
 
-export const getPatientDetail = (patientId) => API.get(`/admin/patientbyid?${patientId}`);
+export const getPatientDetail = (patientId) =>
+  API.get(`/admin/patientbyid?patientId=${patientId}`);
 
-export const DashUsers = (data) => API.post(`/admin/getUsers`, data);
-export const AllUsers = (data) => API.post(`/admin/getAllUsers`, data);
-export const BlockUser = (data) => API.post(`/admin/manageUser`, data);
-export const UserAd = (data) => API.post(`/admin/getUsersAllAds`, data);
-export const SingleAd = (data) => API.post(`/ads/byid`, data);
-export const UpdateAd = (data) => API.post(`/ads/update`, data);
-export const DeleteAd = (data) => API.delete(`/ads/delete`, { data: data });
+export const getDoctorDetail = (doctorId) =>
+  API.get(`/admin/doctorbyid?doctorId=${doctorId}`);
 
-export const FetchSearch = (data) => API.post(`/admin/getUserSearch`, data);
-export const FetchRevenue = (data) => API.post(`/payment/getRevenues`, data);
-export const FetchGraph = (data) => API.get(`/payment/getSales`, data);
-export const FetchPlans = () => API.get(`/payment/getPlans`);
-export const UpdatePlans = (data) => API.post(`/payment/updatePlans`, data);
-export const FetchFeedback = () => API.get(`/feedback/getFeedbacks`);
+export const getPharmaDetail = (pharmaId) =>
+  API.get(`/admin/pharmacybyid?pharmacyId=${pharmaId}`);
 
-export const FetchsubAdmin = () => API.get(`/admin/getAdmins`);
-export const AddsubAdmin = (data) => API.post(`/admin/addAdmin`, data);
-export const EditsubAdmin = (data) => API.post(`/admin/editAdmin`, data);
-export const DeletesubAdmin = (data) => API.post(`/admin/deleteAdmin`, data);
+export const getAmbulanceDetail = (ambulanceId) =>
+  API.get(`/admin/ambulancebyid?ambulanceId=${ambulanceId}`);

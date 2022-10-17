@@ -67,7 +67,7 @@ const AmbulanceData = ({ data }) => {
         {data.map((data, id) => (
           <tr
             key={id}
-            onClick={() => navigate(`/ambulance/${data.userId}`)}
+            onClick={() => navigate(`/ambulance/${data.id}`)}
             style={{
               fontWeight: "400",
               fontSize: "1rem",

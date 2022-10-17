@@ -1,6 +1,8 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import city from 'city';
+
 
 const DummyData = [
   {
@@ -42,7 +44,7 @@ const DummyData = [
 ];
 
 const PharmaData = ({ data }) => {
-  console.log(data);
+  const loc = "Not available"
   const navigate = useNavigate();
   return (
     <Table borderless responsive hover>
@@ -68,7 +70,7 @@ const PharmaData = ({ data }) => {
         {data.map((data, id) => (
           <tr
             key={id}
-            onClick={() => navigate(`/pharmacy/${data.userId}`)}
+            onClick={() => navigate(`/pharmacy/${data.id}`)}
             style={{
               fontWeight: "400",
               fontSize: "1rem",
@@ -79,7 +81,7 @@ const PharmaData = ({ data }) => {
           >
             <td style={{ textTransform: "capitalize" }}>{data.Pharmacyname}</td>
             <td>{data.phone}</td>
-            <td>{data.loc}</td>
+            <td>{loc}</td>
             <td>{data.isBlock ? "Block" : "Not Block"}</td>
           </tr>
         ))}
