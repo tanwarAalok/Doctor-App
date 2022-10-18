@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useState, createContext } from "react";
 
 export const AdminContext = createContext({
@@ -9,23 +10,24 @@ export const AdminContext = createContext({
     setPharma: () => null,
     ambulance: null,
     setAmbulance: () => null,
-    patientDetail: null,
-    setPatientDetails: () => null,
-    doctorDetail: null,
-    setDoctorDetails: () => null,
+    
+    patientPopupData: null,
+    popupData: null,
+    // setPopupData: () => null,
 })
 
 export const AdminProvider = ({ children }) => {
     const [patients, setPatients] = useState(null);
-    const [patientDetail, setPatientDetails] = useState(null);
     const [doctors, setDoctors] = useState(null);
     const [pharma, setPharma] = useState(null);
     const [ambulance, setAmbulance] = useState(null);
-    const [doctorDetail, setDoctorDetails] = useState(null);
+    
+    // const [popupData, setPopupData] = useState(null);
+  const popupData = useRef(null);
+  const patientPopupData = useRef(null);
 
-    const value = {
-      doctorDetail, setDoctorDetails,
-      patientDetail, setPatientDetails,
+  const value = {
+      popupData, patientPopupData,
       ambulance, setAmbulance,
       patients,setPatients,
       doctors,setDoctors,

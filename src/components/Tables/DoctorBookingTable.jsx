@@ -1,6 +1,8 @@
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import { Table } from "react-bootstrap";
+import { AdminContext } from "../../context/adminContext";
 import DoctorPatientPopup from "../PopupPage/DoctorPatientPopup";
 
 const dummy = [
@@ -45,8 +47,9 @@ const dummy = [
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
 
-const DoctorsBookingTable = ({data}) => {
+const DoctorsBookingTable = ({ doctorData, data }) => {
   const [trigger, setTrigger] = useState(false);
+  const { popupData, patientPopupData } = useContext(AdminContext);
   return (
     <>
       <Table style={{ cursor: "pointer" }} hover responsive>
@@ -61,11 +64,17 @@ const DoctorsBookingTable = ({data}) => {
         <tbody>
           {data?.map((data, id) => (
             <tr
-              onClick={() => setTrigger(true)}
+              onClick={() => {
+                popupData.current = doctorData;
+                patientPopupData.current = data;
+                setTrigger(true);
+              }}
               style={{ textAlign: "center" }}
               key={id}
             >
-              <td style={{textTransform: "capitalize"}}>{data.patientId?.name}</td>
+              <td style={{ textTransform: "capitalize" }}>
+                {data.patientId?.name}
+              </td>
               <td>
                 {new Date(data.date).getDate()}{" "}
                 {months[new Date(data.date).getMonth()]},{" "}

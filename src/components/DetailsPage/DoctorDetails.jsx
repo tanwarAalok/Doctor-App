@@ -139,7 +139,7 @@ const DoctorsDetail = () => {
                       No past bookings
                     </h1>
                   ) : (
-                    <DoctorsBookingTable data={doctorPastBooking} />
+                    <DoctorsBookingTable doctorData={doctorDetail} data={doctorPastBooking} />
                   )}
                 </div>
               </div>

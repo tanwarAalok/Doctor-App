@@ -60,7 +60,7 @@ const PatientDetail = () => {
     if (table === "doctor") fetchDoctorBookings();
     else if (table === "pharma") fetchPharmaBookings();
     else fetchAmbulanceBookings();
-  }, [table])
+  }, [table]);
 
   
   return (
@@ -308,23 +308,29 @@ const PatientDetail = () => {
                   {table === "doctor" ? (
                     patientDoctorPastBooking === null ||
                     patientDoctorPastBooking.length === 0 ? (
-                      <h2>No past bookings</h2>
+                      <h2 style={{ textAlign: "center", marginTop: "20%" }}>
+                        No past bookings
+                      </h2>
                     ) : (
                       <PatientBookingTable
-                        name={patientDetail?.name}
+                        patientData={patientDetail}
                         data={patientDoctorPastBooking}
                       />
                     )
                   ) : table === "pharma" ? (
                     patientPharmaPastBooking === null ||
                     patientPharmaPastBooking.length === 0 ? (
-                      <h2>No past bookings</h2>
+                      <h2 style={{ textAlign: "center", marginTop: "20%" }}>
+                        No past bookings
+                      </h2>
                     ) : (
                       <PatientPharmaBookings data={patientPharmaPastBooking} />
                     )
                   ) : patientAmbulancePastBooking === null ||
                     patientAmbulancePastBooking.length === 0 ? (
-                    <h2>No past bookings</h2>
+                    <h2 style={{ textAlign: "center", marginTop: "20%" }}>
+                      No past bookings
+                    </h2>
                   ) : (
                     <PatientAmbulanceBookings
                       data={patientAmbulancePastBooking}
