@@ -5,19 +5,27 @@ import "./Profile.css";
 import AdminPic from "../../assets/adsimage.png";
 import { Link, useParams } from "react-router-dom";
 import AmbulanceBookingTable from "../Tables/AmbulanceBookingTable";
-import { getAmbulanceDetail } from "../Axios/apis";
+import { getAmbulanceCurrentBooking, getAmbulanceDetail, getAmbulancePastBooking } from "../Axios/apis";
 
 const AmbulanceDetails = () => {
   const { ambulanceId } = useParams();
   const [ambulanceDetails, setAmbulanceDetails] = useState(null);
 
+  const [ambulanceCurrentBooking, setAmbulanceCurrentBooking] = useState(null);
+  const [ambulancePastBooking, setAmbulancePastBooking] = useState(null);
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAmbulanceDetail(ambulanceId);
+      // const currentBooking = await getAmbulanceCurrentBooking(ambulanceId);
+      // const pastBooking = await getAmbulancePastBooking(ambulanceId);
       setAmbulanceDetails(data.data.user);
+      // setAmbulanceCurrentBooking(currentBooking);
+      // setAmbulancePastBooking(pastBooking.data.mess);
     };
     fetchData();
-  }, [ambulanceDetails]);
+  }, []);
+
   return (
     <div className="parent">
       <div>
@@ -152,7 +160,11 @@ const AmbulanceDetails = () => {
                   </Link>
                 </div>
                 <div className="profile-table-container">
-                  <AmbulanceBookingTable />
+                  {ambulancePastBooking === null || ambulancePastBooking.length === 0 ? (
+                    <h1 style={{textAlign: "center", marginTop: "20%"}}>No past bookings</h1>
+                  ) : (
+                    <AmbulanceBookingTable data={ambulancePastBooking}/>
+                  )}
                 </div>
               </div>
             </div>

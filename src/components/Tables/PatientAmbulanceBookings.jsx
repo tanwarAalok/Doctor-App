@@ -52,7 +52,7 @@ const dummy = [
 
 ];
 
-const PatientAmbulanceBookings = () => {
+const PatientAmbulanceBookings = ({data}) => {
   const [trigger, setTrigger] = useState(false);
   return (
     <>

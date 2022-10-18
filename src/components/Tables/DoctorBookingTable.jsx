@@ -42,7 +42,10 @@ const dummy = [
   },
 ];
 
-const DoctorsBookingTable = () => {
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+
+const DoctorsBookingTable = ({data}) => {
   const [trigger, setTrigger] = useState(false);
   return (
     <>
@@ -56,16 +59,20 @@ const DoctorsBookingTable = () => {
           </tr>
         </thead>
         <tbody>
-          {dummy.map((data, id) => (
+          {data?.map((data, id) => (
             <tr
               onClick={() => setTrigger(true)}
               style={{ textAlign: "center" }}
               key={id}
             >
-              <td>{data.name}</td>
-              <td>{data.dt}</td>
-              <td>{data.age}</td>
-              <td>{data.Status}</td>
+              <td style={{textTransform: "capitalize"}}>{data.patientId?.name}</td>
+              <td>
+                {new Date(data.date).getDate()}{" "}
+                {months[new Date(data.date).getMonth()]},{" "}
+                {new Date(data.date).getFullYear()} ({data.slot})
+              </td>
+              <td>{data.patientId?.age}</td>
+              <td>{data.isComplete ? "Completed" : "Not completed"}</td>
             </tr>
           ))}
         </tbody>

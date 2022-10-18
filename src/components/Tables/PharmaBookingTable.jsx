@@ -48,7 +48,8 @@ const dummy = [
   },
 ];
 
-const PharmaBookingTable = () => {
+const PharmaBookingTable = ({ data }) => {
+  // console.log(data);
   const [trigger, setTrigger] = useState(false);
   return (
     <>
