@@ -9,8 +9,8 @@ const DoctorPatientPopup = ({ setTrigger }) => {
   const doctorData = popupData.current;
   const patientData = patientPopupData.current;
 
-  console.log("patientData: ", patientData);
-  console.log("doctorData: ", doctorData);
+  // console.log("patientData: ", patientData);
+  // console.log("doctorData: ", doctorData);
   
   return (
     <div className="popup-container">

@@ -2,17 +2,17 @@ import React from 'react'
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AdminContext } from '../../context/adminContext';
-import PatientDoctorPopup from '../PopupPage/PatientDoctorPopup';
+import AmbulancePatientPopup from '../PopupPage/AmbulancePatientPopup';
 
-const CurrentBookingCard = ({ patientData, data }) => {
-    const { popupData, patientPopupData } = useContext(AdminContext);
-    const [trigger, setTrigger] = useState(false);
+const AmbulanceCurrentBooking = ({data}) => {
+  const { popupData, patientPopupData } = useContext(AdminContext);
+  const [trigger, setTrigger] = useState(false);
   return (
     <>
       <div
         onClick={() => {
           popupData.current = data;
-          patientPopupData.current = patientData;
+          patientPopupData.current = patientPopupData;
           setTrigger(true);
         }}
         className="profile-card"
@@ -43,9 +43,9 @@ const CurrentBookingCard = ({ patientData, data }) => {
         </div>
       </div>
 
-      {trigger ? <PatientDoctorPopup setTrigger={setTrigger} /> : ""}
+      {trigger ? <AmbulancePatientPopup setTrigger={setTrigger} /> : ""}
     </>
   );
 }
 
-export default CurrentBookingCard
+export default AmbulanceCurrentBooking

@@ -55,7 +55,6 @@ const dummy = [
 ];
 
 const PatientPharmaBookings = ({data}) => {
-  const [trigger, setTrigger] = useState(false);
   return (
     <>
       <Table style={{ cursor: "pointer" }} hover responsive>
@@ -70,12 +69,8 @@ const PatientPharmaBookings = ({data}) => {
           </tr>
         </thead>
         <tbody>
-          {dummy.map((data, id) => (
-            <tr
-              onClick={() => setTrigger(true)}
-              style={{ textAlign: "center" }}
-              key={id}
-            >
+          {data.map((data, id) => (
+            <tr style={{ textAlign: "center" }} key={id}>
               <td>{data.name}</td>
               <td>{data.pharma}</td>
               <td>{data.date}</td>
@@ -86,8 +81,6 @@ const PatientPharmaBookings = ({data}) => {
           ))}
         </tbody>
       </Table>
-      
-      {trigger ? <PharmaPatientPopup setTrigger={setTrigger}/> : ""}
     </>
   );
 };

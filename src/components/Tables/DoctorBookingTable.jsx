@@ -47,12 +47,10 @@ const dummy = [
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
 
-const DoctorsBookingTable = ({ doctorData, data }) => {
-  const [trigger, setTrigger] = useState(false);
-  const { popupData, patientPopupData } = useContext(AdminContext);
+const DoctorsBookingTable = ({ data }) => {
   return (
     <>
-      <Table style={{ cursor: "pointer" }} hover responsive>
+      <Table responsive>
         <thead>
           <tr style={{ textAlign: "center" }}>
             <th>Name</th>
@@ -64,11 +62,6 @@ const DoctorsBookingTable = ({ doctorData, data }) => {
         <tbody>
           {data?.map((data, id) => (
             <tr
-              onClick={() => {
-                popupData.current = doctorData;
-                patientPopupData.current = data;
-                setTrigger(true);
-              }}
               style={{ textAlign: "center" }}
               key={id}
             >
@@ -86,7 +79,6 @@ const DoctorsBookingTable = ({ doctorData, data }) => {
           ))}
         </tbody>
       </Table>
-      {trigger ? <DoctorPatientPopup setTrigger={setTrigger} /> : ""}
     </>
   );
 };

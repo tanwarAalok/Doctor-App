@@ -48,7 +48,7 @@ const dummy = [
 ]
 
 const AmbulanceBookingTable = () => {
-  const [trigger, setTrigger] = useState(false);
+  // const [trigger, setTrigger] = useState(false);
 
   return (
     <>
@@ -64,7 +64,7 @@ const AmbulanceBookingTable = () => {
         </thead>
         <tbody>
           {dummy.map((data, id) => (
-            <tr onClick={() => setTrigger(true)} style={{ textAlign: "center" }} key={id}>
+            <tr  style={{ textAlign: "center" }} key={id}>
               <td>{data.Name}</td>
               <td>{data.Date}</td>
               <td>{data.From}</td>
@@ -74,7 +74,7 @@ const AmbulanceBookingTable = () => {
           ))}
         </tbody>
       </Table>
-      {trigger ? <AmbulancePatientPopup setTrigger={setTrigger} />: ""}
+      {/* {trigger ? <AmbulancePatientPopup setTrigger={setTrigger} />: ""} */}
     </>
   );
 }

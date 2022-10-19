@@ -2,24 +2,25 @@ import React from 'react'
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AdminContext } from '../../context/adminContext';
-import PatientDoctorPopup from '../PopupPage/PatientDoctorPopup';
+import DoctorPatientPopup from '../PopupPage/DoctorPatientPopup';
 
-const CurrentBookingCard = ({ patientData, data }) => {
-    const { popupData, patientPopupData } = useContext(AdminContext);
-    const [trigger, setTrigger] = useState(false);
+const DoctorPatientCurrentBooking = ({ doctorData, data }) => {
+    console.log(data);
+  const { popupData, patientPopupData } = useContext(AdminContext);
+  const [trigger, setTrigger] = useState(false);
   return (
     <>
       <div
         onClick={() => {
-          popupData.current = data;
-          patientPopupData.current = patientData;
+          popupData.current = doctorData;
+          patientPopupData.current = data;
           setTrigger(true);
         }}
         className="profile-card"
       >
-        <img src={data?.doctorId?.picture} alt="" />
+        <img src={data?.patientId?.picture} alt="" />
         <div>
-          <h5 className="card-name">{data?.doctorId?.name}</h5>
+          <h5 className="card-name">{data?.patientId?.name}</h5>
           <div className="timediv">
             <svg
               style={{
@@ -43,9 +44,9 @@ const CurrentBookingCard = ({ patientData, data }) => {
         </div>
       </div>
 
-      {trigger ? <PatientDoctorPopup setTrigger={setTrigger} /> : ""}
+      {trigger ? <DoctorPatientPopup setTrigger={setTrigger} /> : ""}
     </>
   );
-}
+};
 
-export default CurrentBookingCard
+export default DoctorPatientCurrentBooking
