@@ -1,8 +1,18 @@
 import React from "react";
 import "./Popup.css";
 import AdminPic from "../../assets/adsimage.png";
+import { useContext } from "react";
+import { AdminContext } from "../../context/adminContext";
 
 const AmbulancePatientPopup = ({ setTrigger }) => {
+
+  const { popupData, patientPopupData } = useContext(AdminContext);
+  
+  const ambulanceData = popupData.current;
+  const patientData = patientPopupData.current;
+
+  // console.log(ambulanceData);
+
   return (
     <div className="popup-container">
       {/* left div */}
@@ -11,7 +21,7 @@ const AmbulancePatientPopup = ({ setTrigger }) => {
           <h2 className="popup-h2">Ambulance Detail</h2>
           <img
             style={{ borderRadius: "50%", width: "125px", height: "125px" }}
-            src={AdminPic}
+            src={ambulanceData?.imgUrl}
             alt=""
           />
         </div>
@@ -20,21 +30,20 @@ const AmbulancePatientPopup = ({ setTrigger }) => {
             <p style={{ opacity: "0.5" }} className="popup-p">
               Driver Name
             </p>
-            <p className="popup-p">City Medicos</p>
+            <p className="popup-p">{ambulanceData?.driverName}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
               Phone No
             </p>
-            <p className="popup-p">9834523945</p>
+            <p className="popup-p">{ambulanceData?.phoneNumber}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
-              DL No
+              Plate No
             </p>
-            <p className="popup-p">CC9795535FGJ</p>
+            <p className="popup-p">{ambulanceData?.plateNumber}</p>
           </div>
-
         </div>
       </div>
       {/* Middle div */}
@@ -68,7 +77,7 @@ const AmbulancePatientPopup = ({ setTrigger }) => {
           <h2 className="popup-h2">Patients Detail</h2>
           <img
             style={{ borderRadius: "50%", width: "125px", height: "125px" }}
-            src={AdminPic}
+            src={patientData?.patientId?.picture}
             alt=""
           />
         </div>
@@ -77,31 +86,25 @@ const AmbulancePatientPopup = ({ setTrigger }) => {
             <p style={{ opacity: "0.5" }} className="popup-p">
               Full Name
             </p>
-            <p className="popup-p">Dr. Jane</p>
+            <p className="popup-p">{patientData?.patientId?.name}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
               Age
             </p>
-            <p className="popup-p">32</p>
+            <p className="popup-p">{patientData?.patientId?.age}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
               Phone No
             </p>
-            <p className="popup-p">9834523945</p>
+            <p className="popup-p">{patientData?.patientId?.phone}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
-              Speciality
+              Email
             </p>
-            <p className="popup-p">Surgeon</p>
-          </div>
-          <div className="div-apart">
-            <p style={{ opacity: "0.5" }} className="popup-p">
-              Years of Experience
-            </p>
-            <p className="popup-p">Dr. Jane</p>
+            <p className="popup-p">{patientData?.patientId?.email}</p>
           </div>
         </div>
       </div>

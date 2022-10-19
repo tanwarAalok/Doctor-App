@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { AdminContext } from '../../context/adminContext';
 import DoctorPatientPopup from '../PopupPage/DoctorPatientPopup';
+import AdminPic from "../../assets/adsimage.png";
+
 
 const DoctorPatientCurrentBooking = ({ doctorData, data }) => {
-    // console.log(data);
+    // console.log(data?.patientId);
   const { popupData, patientPopupData } = useContext(AdminContext);
   const [trigger, setTrigger] = useState(false);
   return (
@@ -18,7 +20,7 @@ const DoctorPatientCurrentBooking = ({ doctorData, data }) => {
         }}
         className="profile-card"
       >
-        <img src={data?.patientId?.picture} alt="" />
+        <img src={data?.patientId === null ? `${AdminPic}` : `${data?.patientId?.picture}`} alt="" />
         <div>
           <h5 className="card-name">{data?.patientId?.name}</h5>
           <div className="timediv">

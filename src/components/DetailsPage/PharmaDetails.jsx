@@ -26,7 +26,7 @@ const PharmaDetail = () => {
     fetchData();
   }, []);
 
-  console.log(pharmaCurrentBooking);
+  // console.log(pharmaCurrentBooking);
 
   return (
     <div className="parent">
@@ -89,7 +89,11 @@ const PharmaDetail = () => {
                     <h3>No current bookings</h3>
                   ) : (
                     pharmaCurrentBooking?.map((data, id) => (
-                      <PharmaCurrentBooking key={id} data={data} />
+                      <PharmaCurrentBooking
+                        key={id}
+                        pharmaData={pharmaDetail}
+                        data={data}
+                      />
                     ))
                   )}
                 </div>

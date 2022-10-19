@@ -13,7 +13,7 @@ export const AdminContext = createContext({
     
     patientPopupData: null,
     popupData: null,
-    // setPopupData: () => null,
+    pharmaPopupData : null,
 })
 
 export const AdminProvider = ({ children }) => {
@@ -25,8 +25,10 @@ export const AdminProvider = ({ children }) => {
     // const [popupData, setPopupData] = useState(null);
   const popupData = useRef(null);
   const patientPopupData = useRef(null);
+  const pharmaPopupData = useRef(null);
 
-  const value = {
+    const value = {
+      pharmaPopupData,
       popupData, patientPopupData,
       ambulance, setAmbulance,
       patients,setPatients,

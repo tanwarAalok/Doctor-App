@@ -1,8 +1,18 @@
 import React from "react";
 import "./Popup.css";
 import AdminPic from "../../assets/adsimage.png";
+import { useContext } from "react";
+import { AdminContext } from "../../context/adminContext";
 
 const PharmaPatientPopup = ({ setTrigger }) => {
+  const { popupData, patientPopupData } = useContext(AdminContext);
+  
+  const pharmaData = popupData.current;
+  const patientData = patientPopupData.current;
+
+  // console.log("pharmaData: ", pharmaData);
+  // console.log("patientData: ", patientData);
+
   return (
     <div className="popup-container">
       {/* left div */}
@@ -20,31 +30,31 @@ const PharmaPatientPopup = ({ setTrigger }) => {
             <p style={{ opacity: "0.5" }} className="popup-p">
               Pharma Name
             </p>
-            <p className="popup-p">City Medicos</p>
+            <p className="popup-p">{pharmaData?.Pharmacyname}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
               Phone No
             </p>
-            <p className="popup-p">9834523945</p>
+            <p className="popup-p">{pharmaData?.phone}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
               GST No
             </p>
-            <p className="popup-p">CC9795535FGJ</p>
+            <p className="popup-p">{pharmaData?.gstno}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
               Owner Name
             </p>
-            <p className="popup-p">Micheal Smith</p>
+            <p className="popup-p">{pharmaData?.ownername}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
               Address of Pharma
             </p>
-            <p className="popup-p">SCO 453, Main Market, Delhi</p>
+            <p className="popup-p">{pharmaData?.address}</p>
           </div>
         </div>
       </div>
@@ -69,7 +79,8 @@ const PharmaPatientPopup = ({ setTrigger }) => {
           10 October 2022
         </p>
         <p style={{ opacity: "0.5", margin: "0" }} className="popup-p">
-          10:00 AM IST
+          {new Date(patientData?.createdAt).getHours()}:
+          {new Date(patientData?.createdAt).getMinutes()}{" "} IST
         </p>
       </div>
 
@@ -79,7 +90,7 @@ const PharmaPatientPopup = ({ setTrigger }) => {
           <h2 className="popup-h2">Patients Detail</h2>
           <img
             style={{ borderRadius: "50%", width: "125px", height: "125px" }}
-            src={AdminPic}
+            src={patientData?.patientId?.picture}
             alt=""
           />
         </div>
@@ -88,31 +99,25 @@ const PharmaPatientPopup = ({ setTrigger }) => {
             <p style={{ opacity: "0.5" }} className="popup-p">
               Full Name
             </p>
-            <p className="popup-p">Dr. Jane</p>
+            <p className="popup-p">{patientData?.patientId?.name}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
               Age
             </p>
-            <p className="popup-p">32</p>
+            <p className="popup-p">{patientData?.patientId?.age}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
               Phone No
             </p>
-            <p className="popup-p">9834523945</p>
+            <p className="popup-p">{patientData?.patientId?.phone}</p>
           </div>
           <div className="div-apart">
             <p style={{ opacity: "0.5" }} className="popup-p">
-              Speciality
+              Email
             </p>
-            <p className="popup-p">Surgeon</p>
-          </div>
-          <div className="div-apart">
-            <p style={{ opacity: "0.5" }} className="popup-p">
-              Years of Experience
-            </p>
-            <p className="popup-p">Dr. Jane</p>
+            <p className="popup-p">{patientData?.patientId?.email}</p>
           </div>
         </div>
       </div>
