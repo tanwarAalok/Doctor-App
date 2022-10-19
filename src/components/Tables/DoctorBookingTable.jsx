@@ -50,7 +50,7 @@ const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept"
 const DoctorsBookingTable = ({ data }) => {
   return (
     <>
-      <Table responsive>
+      <Table hover responsive>
         <thead>
           <tr style={{ textAlign: "center" }}>
             <th>Name</th>

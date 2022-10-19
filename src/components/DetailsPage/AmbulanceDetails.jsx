@@ -27,7 +27,7 @@ const AmbulanceDetails = () => {
     fetchData();
   }, []);
 
-  // console.log(ambulanceCurrentBooking);
+  console.log(ambulanceCurrentBooking);
 
   return (
     <div className="parent">

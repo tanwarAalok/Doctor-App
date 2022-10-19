@@ -48,11 +48,10 @@ const dummy = [
 ]
 
 const AmbulanceBookingTable = () => {
-  // const [trigger, setTrigger] = useState(false);
 
   return (
     <>
-      <Table style={{ cursor: "pointer" }} hover responsive>
+      <Table hover responsive>
         <thead>
           <tr style={{ textAlign: "center" }}>
             <th>Name</th>
@@ -74,7 +73,6 @@ const AmbulanceBookingTable = () => {
           ))}
         </tbody>
       </Table>
-      {/* {trigger ? <AmbulancePatientPopup setTrigger={setTrigger} />: ""} */}
     </>
   );
 }

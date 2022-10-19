@@ -5,7 +5,7 @@ import { AdminContext } from '../../context/adminContext';
 import DoctorPatientPopup from '../PopupPage/DoctorPatientPopup';
 
 const DoctorPatientCurrentBooking = ({ doctorData, data }) => {
-    console.log(data);
+    // console.log(data);
   const { popupData, patientPopupData } = useContext(AdminContext);
   const [trigger, setTrigger] = useState(false);
   return (

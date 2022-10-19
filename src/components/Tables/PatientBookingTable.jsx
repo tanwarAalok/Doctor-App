@@ -46,7 +46,7 @@ const PatientBookingTable = ({ patientData, data }) => {
   
   return (
     <>
-      <Table  responsive>
+      <Table hover responsive>
         <thead>
           <tr style={{ textAlign: "center" }}>
             <th>Name</th>
