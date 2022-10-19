@@ -50,8 +50,8 @@ const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept"
 
 const PatientBookingTable = ({ patientData, data }) => {
   // console.log(data);
-  const [trigger, setTrigger] = useState(false);
-  const { popupData, patientPopupData} = useContext(AdminContext);
+  // const [trigger, setTrigger] = useState(false);
+  // const { popupData, patientPopupData} = useContext(AdminContext);
   
   return (
     <>
@@ -68,7 +68,6 @@ const PatientBookingTable = ({ patientData, data }) => {
         <tbody>
           {data?.map((data, id) => (
             <tr
-              onClick={() => { popupData.current = data; patientPopupData.current = patientData; setTrigger(true);}}
               style={{ textAlign: "center" }}
               key={id}
             >
@@ -87,7 +86,7 @@ const PatientBookingTable = ({ patientData, data }) => {
       </Table>
 
       {/* for testing only not real solution */}
-      {trigger ? <PatientDoctorPopup setTrigger={setTrigger} /> : ""}
+      {/* {trigger ? <PatientDoctorPopup setTrigger={setTrigger} /> : ""} */}
     </>
   );
 };
