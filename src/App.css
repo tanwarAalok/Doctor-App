@@ -6,6 +6,11 @@
   overflow-x: hidden;
 }
 
+.bg-dull{
+  opacity: 0.2;
+  /* background-color: black; */
+}
+
 .div-c{
   display: flex;
   justify-content: center;

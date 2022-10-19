@@ -5,6 +5,9 @@ import { AdminContext } from '../../context/adminContext';
 import DoctorPatientPopup from '../PopupPage/DoctorPatientPopup';
 import AdminPic from "../../assets/adsimage.png";
 
+const sidebar = document.querySelector("#sidebar");
+const navbar = document.querySelector("#navbar");
+const tablediv = document.querySelector("#tablediv");
 
 const DoctorPatientCurrentBooking = ({ doctorData, data }) => {
     // console.log(data?.patientId);
@@ -16,6 +19,9 @@ const DoctorPatientCurrentBooking = ({ doctorData, data }) => {
         onClick={() => {
           popupData.current = doctorData;
           patientPopupData.current = data;
+          sidebar?.classList.add("bg-dull");
+          navbar?.classList.add("bg-dull");
+          tablediv?.classList.add("bg-dull");
           setTrigger(true);
         }}
         className="profile-card"

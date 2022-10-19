@@ -109,20 +109,18 @@ const DoctorsDetail = () => {
                   <h1 style={{ fontSize: "24px" }} className="heading">
                     Previous Booking
                   </h1>
-                  <Link className="viewButton" to="">
+                  {/* <Link className="viewButton" to="">
                     View All
-                  </Link>
+                  </Link> */}
                 </div>
-                <div className="profile-table-container">
+                <div id="tablediv" className="profile-table-container">
                   {doctorPastBooking === null ||
                   doctorPastBooking.length === 0 ? (
                     <h1 style={{ textAlign: "center", marginTop: "20%" }}>
                       No past bookings
                     </h1>
                   ) : (
-                    <DoctorsBookingTable
-                      data={doctorPastBooking}
-                    />
+                    <DoctorsBookingTable data={doctorPastBooking} />
                   )}
                 </div>
               </div>

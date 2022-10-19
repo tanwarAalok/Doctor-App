@@ -92,7 +92,7 @@ const AmbulanceDetails = () => {
                     View All
                   </Link>
                 </div>
-                <div className="profile-table-container">
+                <div id="tablediv" className="profile-table-container">
                   {ambulancePastBooking === null ||
                   ambulancePastBooking.length === 0 ? (
                     <h1 style={{ textAlign: "center", marginTop: "20%" }}>

@@ -9,7 +9,7 @@ import "./sidebar.css";
 
 const SideBar = () => {
   return (
-    <Drawer className="sidebar-main">
+    <Drawer id="sidebar" className="sidebar-main">
       <Drawer.Overflow>
         <Drawer.ToC style={{ overflow: "hidden" }}>
           <Drawer.Header

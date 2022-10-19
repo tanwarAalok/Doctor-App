@@ -76,95 +76,68 @@ const PatientDetail = () => {
             <h1>Loading</h1>
           </div>
         ) : (
-            <div className="main-div">
-              <h1 className="heading profile-heading">{patientDetail?.name}</h1>
-              <div className="profile-container">
+          <div className="main-div">
+            <h1 className="heading profile-heading">{patientDetail?.name}</h1>
+            <div className="profile-container">
+              <div>
+                <div>
+                  <img src={patientDetail?.picture} alt="" />
+                  <h1 style={{ fontSize: "20px" }} className="heading">
+                    {patientDetail?.name}
+                  </h1>
+                </div>
                 <div>
                   <div>
-                    <img src={patientDetail?.picture} alt="" />
-                    <h1 style={{ fontSize: "20px" }} className="heading">
-                      {patientDetail?.name}
-                    </h1>
+                    <p className="key">Gender</p>
+                    <p style={{ textTransform: "capitalize" }}>
+                      {patientDetail?.gender}
+                    </p>
                   </div>
                   <div>
-                    <div>
-                      <p className="key">Gender</p>
-                      <p style={{ textTransform: "capitalize" }}>
-                        {patientDetail?.gender}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="key">Age</p>
-                      <p>{patientDetail?.age}</p>
-                    </div>
-                    <div>
-                      <p className="key">Phone Number</p>
-                      <p>{patientDetail?.phone}</p>
-                    </div>
-                    <div>
-                      <p className="key">Email Id</p>
-                      <p>{patientDetail?.email}</p>
-                    </div>
+                    <p className="key">Age</p>
+                    <p>{patientDetail?.age}</p>
+                  </div>
+                  <div>
+                    <p className="key">Phone Number</p>
+                    <p>{patientDetail?.phone}</p>
+                  </div>
+                  <div>
+                    <p className="key">Email Id</p>
+                    <p>{patientDetail?.email}</p>
                   </div>
                 </div>
+              </div>
 
-                <div>
-                  <div style={{ display: "flex", marginRight: "10px" }}>
-                    <h1 style={{ fontSize: "24px" }} className="heading">
-                      Current Booking
-                    </h1>
-                    <div style={{ display: "flex" }}>
-                      <button
-                        onClick={() => setTable("doctor")}
-                        className={table === "doctor" ? "btn-active" : "mybtn"}
-                      >
-                        Doctor
-                      </button>
-                      <button
-                        onClick={() => setTable("pharma")}
-                        className={table === "pharma" ? "btn-active" : "mybtn"}
-                      >
-                        Pharma
-                      </button>
-                      <button
-                        onClick={() => setTable("ambulance")}
-                        className={
-                          table === "ambulance" ? "btn-active" : "mybtn"
-                        }
-                      >
-                        Ambulance
-                      </button>
-                    </div>
+              <div>
+                <div style={{ display: "flex", marginRight: "10px" }}>
+                  <h1 style={{ fontSize: "24px" }} className="heading">
+                    Current Booking
+                  </h1>
+                  <div style={{ display: "flex" }}>
+                    <button
+                      onClick={() => setTable("doctor")}
+                      className={table === "doctor" ? "btn-active" : "mybtn"}
+                    >
+                      Doctor
+                    </button>
+                    <button
+                      onClick={() => setTable("pharma")}
+                      className={table === "pharma" ? "btn-active" : "mybtn"}
+                    >
+                      Pharma
+                    </button>
+                    <button
+                      onClick={() => setTable("ambulance")}
+                      className={table === "ambulance" ? "btn-active" : "mybtn"}
+                    >
+                      Ambulance
+                    </button>
                   </div>
-                  <div className="profile-card-container">
-                    {table === "doctor" ? (
-                      patientDoctorCurrentBooking === null ||
-                      patientDoctorCurrentBooking.length === 0 ? (
-                        <h3>No current bookings</h3>
-                      ) : (
-                        patientDoctorCurrentBooking?.map((data, id) => (
-                          <CurrentBookingCard
-                            key={id}
-                            patientData={patientDetail}
-                            data={data}
-                          />
-                        ))
-                      )
-                    ) : table === "pharma" ? (
-                      patientPharmaCurrentBooking === null ||
-                      patientPharmaCurrentBooking.length === 0 ? (
-                        <h3>No current bookings</h3>
-                      ) : (
-                        patientDoctorCurrentBooking?.map((data, id) => (
-                          <CurrentBookingCard
-                            key={id}
-                            patientData={patientDetail}
-                            data={data}
-                          />
-                        ))
-                      )
-                    ) : patientAmbulanceCurrentBooking === null ||
-                      patientAmbulanceCurrentBooking.length === 0 ? (
+                </div>
+                <div className="profile-card-container">
+                  {table === "doctor" ? (
+                    patientDoctorCurrentBooking === null ||
+                    patientDoctorCurrentBooking.length === 0 ? (
                       <h3>No current bookings</h3>
                     ) : (
                       patientDoctorCurrentBooking?.map((data, id) => (
@@ -174,55 +147,78 @@ const PatientDetail = () => {
                           data={data}
                         />
                       ))
-                    )}
-                  </div>
-
-                  <div className="div-apart">
-                    <h1 style={{ fontSize: "24px" }} className="heading">
-                      Previous Booking
-                    </h1>
-                    <Link className="viewButton" to="">
-                      View All
-                    </Link>
-                  </div>
-                  <div className="profile-table-container">
-                    {table === "doctor" ? (
-                      patientDoctorPastBooking === null ||
-                      patientDoctorPastBooking.length === 0 ? (
-                        <h2 style={{ textAlign: "center", marginTop: "20%" }}>
-                          No past bookings
-                        </h2>
-                      ) : (
-                        <PatientBookingTable
+                    )
+                  ) : table === "pharma" ? (
+                    patientPharmaCurrentBooking === null ||
+                    patientPharmaCurrentBooking.length === 0 ? (
+                      <h3>No current bookings</h3>
+                    ) : (
+                      patientDoctorCurrentBooking?.map((data, id) => (
+                        <CurrentBookingCard
+                          key={id}
                           patientData={patientDetail}
-                          data={patientDoctorPastBooking}
+                          data={data}
                         />
-                      )
-                    ) : table === "pharma" ? (
-                      patientPharmaPastBooking === null ||
-                      patientPharmaPastBooking.length === 0 ? (
-                        <h2 style={{ textAlign: "center", marginTop: "20%" }}>
-                          No past bookings
-                        </h2>
-                      ) : (
-                        <PatientPharmaBookings
-                          data={patientPharmaPastBooking}
-                        />
-                      )
-                    ) : patientAmbulancePastBooking === null ||
-                      patientAmbulancePastBooking.length === 0 ? (
+                      ))
+                    )
+                  ) : patientAmbulanceCurrentBooking === null ||
+                    patientAmbulanceCurrentBooking.length === 0 ? (
+                    <h3>No current bookings</h3>
+                  ) : (
+                    patientDoctorCurrentBooking?.map((data, id) => (
+                      <CurrentBookingCard
+                        key={id}
+                        patientData={patientDetail}
+                        data={data}
+                      />
+                    ))
+                  )}
+                </div>
+
+                <div className="div-apart">
+                  <h1 style={{ fontSize: "24px" }} className="heading">
+                    Previous Booking
+                  </h1>
+                  {/* <Link className="viewButton" to="">
+                    View All
+                  </Link> */}
+                </div>
+                <div id="tablediv" className="profile-table-container">
+                  {table === "doctor" ? (
+                    patientDoctorPastBooking === null ||
+                    patientDoctorPastBooking.length === 0 ? (
                       <h2 style={{ textAlign: "center", marginTop: "20%" }}>
                         No past bookings
                       </h2>
                     ) : (
-                      <PatientAmbulanceBookings
-                        data={patientAmbulancePastBooking}
+                      <PatientBookingTable
+                        patientData={patientDetail}
+                        data={patientDoctorPastBooking}
                       />
-                    )}
-                  </div>
+                    )
+                  ) : table === "pharma" ? (
+                    patientPharmaPastBooking === null ||
+                    patientPharmaPastBooking.length === 0 ? (
+                      <h2 style={{ textAlign: "center", marginTop: "20%" }}>
+                        No past bookings
+                      </h2>
+                    ) : (
+                      <PatientPharmaBookings data={patientPharmaPastBooking} />
+                    )
+                  ) : patientAmbulancePastBooking === null ||
+                    patientAmbulancePastBooking.length === 0 ? (
+                    <h2 style={{ textAlign: "center", marginTop: "20%" }}>
+                      No past bookings
+                    </h2>
+                  ) : (
+                    <PatientAmbulanceBookings
+                      data={patientAmbulancePastBooking}
+                    />
+                  )}
                 </div>
               </div>
             </div>
+          </div>
         )}
       </div>
     </div>

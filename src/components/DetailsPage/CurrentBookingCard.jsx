@@ -4,6 +4,10 @@ import { useContext } from 'react';
 import { AdminContext } from '../../context/adminContext';
 import PatientDoctorPopup from '../PopupPage/PatientDoctorPopup';
 
+const sidebar = document.querySelector("#sidebar");
+const navbar = document.querySelector("#navbar");
+const tablediv = document.querySelector("#tablediv");
+
 const CurrentBookingCard = ({ patientData, data }) => {
     const { popupData, patientPopupData } = useContext(AdminContext);
     const [trigger, setTrigger] = useState(false);
@@ -13,6 +17,9 @@ const CurrentBookingCard = ({ patientData, data }) => {
         onClick={() => {
           popupData.current = data;
           patientPopupData.current = patientData;
+          sidebar?.classList.add("bg-dull");
+          navbar?.classList.add("bg-dull");
+          tablediv?.classList.add("bg-dull");
           setTrigger(true);
         }}
         className="profile-card"

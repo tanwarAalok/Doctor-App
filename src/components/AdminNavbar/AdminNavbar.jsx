@@ -8,7 +8,7 @@ const AdminNavbar = () => {
 const [search, setSearch] = useState("");
 
   return (
-    <div className="admin-navbar-container">
+    <div id='navbar' className="admin-navbar-container">
       <div className="search-main">
           <div className="rsearch-button-icon">
             <BsSearch size={20} />
