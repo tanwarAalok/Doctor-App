@@ -1,54 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Table } from 'react-bootstrap';
-import AmbulancePatientPopup from "../PopupPage/AmbulancePatientPopup"
 
-const dummy = [
-    {
-        "Name": "Sophia Thomas",
-        "Date": "20 Oct 22",
-        "From": "Mayur Vihar Phase-1",
-        "To": "AIIMS Hospital",
-        "Status": "Done"
-    },
-    {
-        "Name": "Sophia Thomas",
-        "Date": "20 Oct 22",
-        "From": "Mayur Vihar Phase-1",
-        "To": "AIIMS Hospital",
-        "Status": "Done"
-    },
-    {
-        "Name": "Sophia Thomas",
-        "Date": "20 Oct 22",
-        "From": "Mayur Vihar Phase-1",
-        "To": "AIIMS Hospital",
-        "Status": "Done"
-    },
-    {
-        "Name": "Sophia Thomas",
-        "Date": "20 Oct 22",
-        "From": "Mayur Vihar Phase-1",
-        "To": "AIIMS Hospital",
-        "Status": "Done"
-    },
-    {
-        "Name": "Sophia Thomas",
-        "Date": "20 Oct 22",
-        "From": "Mayur Vihar Phase-1",
-        "To": "AIIMS Hospital",
-        "Status": "Done"
-    },
-    {
-        "Name": "Sophia Thomas",
-        "Date": "20 Oct 22",
-        "From": "Mayur Vihar Phase-1",
-        "To": "AIIMS Hospital",
-        "Status": "Done"
-    }
-]
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
-const AmbulanceBookingTable = () => {
-
+const AmbulanceBookingTable = ({data}) => {
   return (
     <>
       <Table hover responsive>
@@ -62,13 +17,17 @@ const AmbulanceBookingTable = () => {
           </tr>
         </thead>
         <tbody>
-          {dummy.map((data, id) => (
-            <tr  style={{ textAlign: "center" }} key={id}>
-              <td>{data.Name}</td>
-              <td>{data.Date}</td>
-              <td>{data.From}</td>
-              <td>{data.To}</td>
-              <td>{data.Status}</td>
+          {data.map((data, id) => (
+            <tr style={{ textAlign: "center" }} key={id}>
+              <td>{data?.patientId?.name}</td>
+              <td>
+                {new Date(data?.createdAt).getDate()}{" "}
+                {months[new Date(data?.createdAt).getMonth()]},{" "}
+                {new Date(data?.createdAt).getFullYear()}
+              </td>
+              <td>454, Palam Vihar</td>
+              <td>{data?.address}</td>
+              <td>{data?.status}</td>
             </tr>
           ))}
         </tbody>

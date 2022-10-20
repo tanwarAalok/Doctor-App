@@ -32,7 +32,7 @@ const PatientManage = () => {
           <div className="table-container">
             {
               patients === null ? (
-                <h1>Waiting for data</h1>
+                <h2 style={{textAlign: "center", margin: "10%"}}>Loading ..</h2>
               ) : (
                   <PatientsData data={patients} /> 
               )}

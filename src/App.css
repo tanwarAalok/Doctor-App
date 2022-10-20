@@ -4,7 +4,9 @@
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  scrollbar-width: thin;
 }
+
 
 .bg-dull{
   opacity: 0.2;

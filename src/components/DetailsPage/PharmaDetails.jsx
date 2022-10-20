@@ -37,7 +37,7 @@ const PharmaDetail = () => {
         <AdminNavbar />
         {pharmaDetail === null ? (
           <div className="main-div">
-            <h1>Loading</h1>
+            <h2 style={{ textAlign: "center", margin: "10%" }}>Loading ..</h2>
           </div>
         ) : (
           <div className="main-div">
@@ -86,7 +86,7 @@ const PharmaDetail = () => {
                 <div className="profile-card-container">
                   {pharmaCurrentBooking === null ||
                   pharmaCurrentBooking.length === 0 ? (
-                    <h3>No current bookings</h3>
+                    <h3 style={{ marginLeft: "30%" }}>No current bookings</h3>
                   ) : (
                     pharmaCurrentBooking?.map((data, id) => (
                       <PharmaCurrentBooking
@@ -102,9 +102,6 @@ const PharmaDetail = () => {
                   <h1 style={{ fontSize: "24px" }} className="heading">
                     Previous Booking
                   </h1>
-                  {/* <Link className="viewButton" to="">
-                    View All
-                  </Link> */}
                 </div>
                 <div id="tablediv" className="profile-table-container">
                   {pharmaPastBooking === null ||

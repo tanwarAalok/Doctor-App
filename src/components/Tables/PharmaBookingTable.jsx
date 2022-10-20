@@ -1,54 +1,10 @@
 import React from "react";
-import { useState } from "react";
 import { Table } from "react-bootstrap";
-import PharmaPatientPopup from "../PopupPage/PharmaPatientPopup";
 
-const dummy = [
-  {
-    name: "Sophia",
-    date: "20 Oct 22",
-    deliver: "64, Janpath, NewDelhi",
-    amount: "$100",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    date: "20 Oct 22",
-    deliver: "64, Janpath, NewDelhi",
-    amount: "$100",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    date: "20 Oct 22",
-    deliver: "64, Janpath, NewDelhi",
-    amount: "$100",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    date: "20 Oct 22",
-    deliver: "64, Janpath, NewDelhi",
-    amount: "$100",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    date: "20 Oct 22",
-    deliver: "64, Janpath, NewDelhi",
-    amount: "$100",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    date: "20 Oct 22",
-    deliver: "64, Janpath, NewDelhi",
-    amount: "$100",
-    Status: "Done",
-  },
-];
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
 const PharmaBookingTable = ({ data }) => {
+
   return (
     <>
       <Table hover responsive>
@@ -57,21 +13,20 @@ const PharmaBookingTable = ({ data }) => {
             <th>Name</th>
             <th>Date</th>
             <th>Delivered To</th>
-            <th>Amount</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {dummy.map((data, id) => (
-            <tr
-              style={{ textAlign: "center" }}
-              key={id}
-            >
-              <td>{data.name}</td>
-              <td>{data.date}</td>
-              <td>{data.deliver}</td>
-              <td>{data.amount}</td>
-              <td>{data.Status}</td>
+          {data.map((data, id) => (
+            <tr style={{ textAlign: "center" }} key={id}>
+              <td>{data?.prescription?.title}</td>
+              <td>
+                {new Date(data?.createdAt).getDate()}{" "}
+                {months[new Date(data?.createdAt).getMonth()]},{" "}
+                {new Date(data?.createdAt).getFullYear()}
+              </td>
+              <td>{data?.patientId?.name}</td>
+              <td>{data?.status}</td>
             </tr>
           ))}
         </tbody>

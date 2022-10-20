@@ -5,11 +5,12 @@ import AdminPic from "../../assets/adsimage.png";
 import { AdminContext } from '../../context/adminContext';
 import AmbulancePatientPopup from '../PopupPage/AmbulancePatientPopup';
 
-const sidebar = document.querySelector("#sidebar");
-const navbar = document.querySelector("#navbar");
-const tablediv = document.querySelector("#tablediv");
 
 const AmbulanceCurrentBooking = ({ambulanceData, data}) => {
+  const sidebar = document.querySelector("#sidebar");
+  const navbar = document.querySelector("#navbar");
+  const tablediv = document.querySelector("#tablediv");
+  
   const { popupData, patientPopupData } = useContext(AdminContext);
   const [trigger, setTrigger] = useState(false);
   return (
@@ -18,9 +19,9 @@ const AmbulanceCurrentBooking = ({ambulanceData, data}) => {
         onClick={() => {
           popupData.current = ambulanceData;
           patientPopupData.current = data;
-          sidebar?.classList?.add("bg-dull");
-          navbar?.classList?.add("bg-dull");
-          tablediv?.classList?.add("bg-dull");
+          sidebar.classList.add("bg-dull");
+          navbar.classList.add("bg-dull");
+          tablediv.classList.add("bg-dull");
           setTrigger(true);
         }}
         className="profile-card"

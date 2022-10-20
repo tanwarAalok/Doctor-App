@@ -38,7 +38,7 @@ const AmbulanceDetails = () => {
         <AdminNavbar />
         {ambulanceDetails === null ? (
           <div className="main-div">
-            <h1>Loading</h1>
+            <h2 style={{ textAlign: "center", margin: "10%" }}>Loading ..</h2>
           </div>
         ) : (
           <div className="main-div">
@@ -76,10 +76,14 @@ const AmbulanceDetails = () => {
                 <div className="profile-card-container">
                   {ambulanceCurrentBooking === null ||
                   ambulanceCurrentBooking.length === 0 ? (
-                    <h1>No current Bookings</h1>
+                    <h3 style={{ marginLeft: "30%" }}>No current bookings</h3>
                   ) : (
                     ambulanceCurrentBooking.map((data, id) => (
-                      <AmbulanceCurrentBooking key={id} ambulanceData={ambulanceDetails} data={data} />
+                      <AmbulanceCurrentBooking
+                        key={id}
+                        ambulanceData={ambulanceDetails}
+                        data={data}
+                      />
                     ))
                   )}
                 </div>

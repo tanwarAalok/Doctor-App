@@ -25,7 +25,11 @@ const AmbulanceComponent = () => {
         <div className="main-div">
           <h1 className="heading">Ambulance Management</h1>
           <div className="table-container">
-            {ambulance === null ? <h1>Waiting for data</h1> : <AmbulanceData data={ambulance} />}
+            {ambulance === null ? (
+              <h2 style={{ textAlign: "center", margin: "10%" }}>Loading ..</h2>
+            ) : (
+              <AmbulanceData data={ambulance} />
+            )}
           </div>
         </div>
       </div>

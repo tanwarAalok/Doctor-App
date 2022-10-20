@@ -1,48 +1,6 @@
 import React from "react";
-import { useContext } from "react";
-import { useState } from "react";
 import { Table } from "react-bootstrap";
-import { AdminContext } from "../../context/adminContext";
-import DoctorPatientPopup from "../PopupPage/DoctorPatientPopup";
 
-const dummy = [
-  {
-    name: "Sophia",
-    dt: "20 Oct 22 (10:00 AM IST)",
-    age: "25",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    dt: "20 Oct 22 (10:00 AM IST)",
-    age: "25",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    dt: "20 Oct 22 (10:00 AM IST)",
-    age: "25",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    dt: "20 Oct 22 (10:00 AM IST)",
-    age: "25",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    dt: "20 Oct 22 (10:00 AM IST)",
-    age: "25",
-    Status: "Done",
-  },
-  {
-    name: "Sophia",
-    dt: "20 Oct 22 (10:00 AM IST)",
-    age: "25",
-    Status: "Done",
-  },
-];
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 

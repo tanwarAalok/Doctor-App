@@ -4,11 +4,12 @@ import AdminPic from "../../assets/adsimage.png"
 import { useContext } from 'react';
 import { AdminContext } from '../../context/adminContext';
 
-const sidebar = document.querySelector("#sidebar");
-const navbar = document.querySelector("#navbar");
-const tablediv = document.querySelector("#tablediv");
-
 const DoctorPatientPopup = ({ setTrigger }) => {
+  
+  const sidebar = document.querySelector("#sidebar");
+  const navbar = document.querySelector("#navbar");
+  const tablediv = document.querySelector("#tablediv");
+  
   const { popupData, patientPopupData } = useContext(AdminContext);
   const doctorData = popupData.current;
   const patientData = patientPopupData.current;
@@ -180,9 +181,9 @@ const DoctorPatientPopup = ({ setTrigger }) => {
       </div>
       <svg
         onClick={() => {
-          sidebar?.classList.remove("bg-dull");
-          navbar?.classList.remove("bg-dull");
-          tablediv?.classList.remove("bg-dull");
+          sidebar.classList.remove("bg-dull");
+          navbar.classList.remove("bg-dull");
+          tablediv.classList.remove("bg-dull");
           setTrigger(false);
         }}
         stroke="currentColor"

@@ -27,7 +27,11 @@ const PharmaManage = () => {
         <div className="main-div">
           <h1 className="heading">Pharma Management</h1>
           <div className="table-container">
-            {pharma === null ? <h1>Waiting for data</h1> : <PharmaData data={pharma} />}
+            {pharma === null ? (
+              <h2 style={{ textAlign: "center", margin: "10%" }}>Loading ..</h2>
+            ) : (
+              <PharmaData data={pharma} />
+            )}
           </div>
         </div>
       </div>

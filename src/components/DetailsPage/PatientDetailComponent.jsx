@@ -73,7 +73,7 @@ const PatientDetail = () => {
         <AdminNavbar />
         {patientDetail === null ? (
           <div className="main-div">
-            <h1>Loading</h1>
+            <h2 style={{ textAlign: "center", margin: "10%" }}>Loading ..</h2>
           </div>
         ) : (
           <div className="main-div">
@@ -138,7 +138,7 @@ const PatientDetail = () => {
                   {table === "doctor" ? (
                     patientDoctorCurrentBooking === null ||
                     patientDoctorCurrentBooking.length === 0 ? (
-                      <h3>No current bookings</h3>
+                      <h3 style={{ marginLeft: "30%" }}>No current bookings</h3>
                     ) : (
                       patientDoctorCurrentBooking?.map((data, id) => (
                         <CurrentBookingCard
@@ -151,7 +151,7 @@ const PatientDetail = () => {
                   ) : table === "pharma" ? (
                     patientPharmaCurrentBooking === null ||
                     patientPharmaCurrentBooking.length === 0 ? (
-                      <h3>No current bookings</h3>
+                      <h3 style={{ marginLeft: "30%" }}>No current bookings</h3>
                     ) : (
                       patientDoctorCurrentBooking?.map((data, id) => (
                         <CurrentBookingCard
@@ -163,7 +163,7 @@ const PatientDetail = () => {
                     )
                   ) : patientAmbulanceCurrentBooking === null ||
                     patientAmbulanceCurrentBooking.length === 0 ? (
-                    <h3>No current bookings</h3>
+                    <h3 style={{ marginLeft: "30%" }}>No current bookings</h3>
                   ) : (
                     patientDoctorCurrentBooking?.map((data, id) => (
                       <CurrentBookingCard
@@ -179,15 +179,12 @@ const PatientDetail = () => {
                   <h1 style={{ fontSize: "24px" }} className="heading">
                     Previous Booking
                   </h1>
-                  {/* <Link className="viewButton" to="">
-                    View All
-                  </Link> */}
                 </div>
                 <div id="tablediv" className="profile-table-container">
                   {table === "doctor" ? (
                     patientDoctorPastBooking === null ||
                     patientDoctorPastBooking.length === 0 ? (
-                      <h2 style={{ textAlign: "center", marginTop: "20%" }}>
+                      <h2 style={{ textAlign: "center", margin: "20%" }}>
                         No past bookings
                       </h2>
                     ) : (
@@ -199,7 +196,7 @@ const PatientDetail = () => {
                   ) : table === "pharma" ? (
                     patientPharmaPastBooking === null ||
                     patientPharmaPastBooking.length === 0 ? (
-                      <h2 style={{ textAlign: "center", marginTop: "20%" }}>
+                      <h2 style={{ textAlign: "center", margin: "20%" }}>
                         No past bookings
                       </h2>
                     ) : (
@@ -207,7 +204,7 @@ const PatientDetail = () => {
                     )
                   ) : patientAmbulancePastBooking === null ||
                     patientAmbulancePastBooking.length === 0 ? (
-                    <h2 style={{ textAlign: "center", marginTop: "20%" }}>
+                    <h2 style={{ textAlign: "center", margin: "20%" }}>
                       No past bookings
                     </h2>
                   ) : (

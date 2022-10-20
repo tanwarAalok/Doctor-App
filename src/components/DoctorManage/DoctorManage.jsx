@@ -26,7 +26,11 @@ const DoctorManage = () => {
         <div className="main-div">
           <h1 className="heading">Doctor Management</h1>
           <div className="table-container">
-            {doctors === null ? <h1>Waiting for data</h1> : <DoctorsData data={doctors} />}
+            {doctors === null ? (
+              <h2 style={{ textAlign: "center", margin: "10%" }}>Loading ..</h2>
+            ) : (
+              <DoctorsData data={doctors} />
+            )}
           </div>
         </div>
       </div>
