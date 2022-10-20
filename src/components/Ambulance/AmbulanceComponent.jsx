@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { AdminContext } from "../../context/adminContext";
 import AdminNavbar from "../AdminNavbar/AdminNavbar";
@@ -8,13 +8,15 @@ import AmbulanceData from "../Tables/AmbulanceData";
 
 const AmbulanceComponent = () => {
   const { ambulance, setAmbulance } = useContext(AdminContext);
-  if (ambulance === null) {
+
+  useEffect(() => {
     const fetchdata = async () => {
       const res = await AllAmbulance();
       setAmbulance(res.data.details);
     };
     fetchdata();
-  }
+  }, [ambulance])
+
   return (
     <div className="parent">
       <div>

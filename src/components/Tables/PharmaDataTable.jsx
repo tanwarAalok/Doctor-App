@@ -1,49 +1,19 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import city from 'city';
+import { pharmaManage } from "../Axios/apis";
 
-
-const DummyData = [
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    loc: "New Delhi",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    loc: "New Delhi",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    loc: "New Delhi",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    loc: "New Delhi",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    loc: "New Delhi",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    loc: "New Delhi",
-    action: "Block",
-  },
-];
 
 const PharmaData = ({ data }) => {
+
+  const managePharma = async (id, value) => {
+    const jsonData = {
+      id,
+      isBlock: value,
+    };
+    await pharmaManage(jsonData);
+  };
+
   const loc = "Not available"
   const navigate = useNavigate();
   return (
@@ -70,7 +40,6 @@ const PharmaData = ({ data }) => {
         {data.map((data, id) => (
           <tr
             key={id}
-            onClick={() => navigate(`/pharmacy/${data.id}`)}
             style={{
               fontWeight: "400",
               fontSize: "1rem",
@@ -79,10 +48,20 @@ const PharmaData = ({ data }) => {
               cursor: "pointer",
             }}
           >
-            <td style={{ textTransform: "capitalize" }}>{data.Pharmacyname}</td>
+            <td
+              onClick={() => navigate(`/pharmacy/${data.id}`)}
+              style={{ textTransform: "capitalize" }}
+            >
+              {data.Pharmacyname}
+            </td>
             <td>{data.phone}</td>
             <td>{loc}</td>
-            <td>{data.isBlock ? "Block" : "Not Block"}</td>
+            <td
+              onClick={() => managePharma(data?.id, !data?.isBlock)}
+              style={{ color: data?.isBlock ? "red" : "green" }}
+            >
+              {data?.isBlock ? "Block" : "Unblock"}
+            </td>
           </tr>
         ))}
       </tbody>

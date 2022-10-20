@@ -3,11 +3,19 @@ const API = axios.create({
   baseURL: "https://doc00.herokuapp.com",
 });
 
+export const dashboard = (date) => API.get(`/admin/dashboard?date=${date}`);
 
 export const AllPatients = () => API.get(`/admin/patients?pg=1&1m=10`);
 export const AllDoctors = () => API.get(`/admin/doctors`);
 export const AllPharmas = () => API.get(`/admin/pharmacies`);
 export const AllAmbulance = () => API.get(`/admin/ambulances`);
+
+//******************************************************************* */ 
+
+export const patientManage = (data) => API.post(`/admin/managepatient`, data);
+export const doctorManage = (data) => API.post(`/admin/managedoctor`, data);
+export const pharmaManage = (data) => API.post(`/admin/managepharmacy`, data);
+export const ambulanceManage = (data) => API.post(`/admin/manageambulance`, data);
 
 //******************************************************************* */ 
 export const getPatientDetail = (patientId) =>
@@ -30,6 +38,7 @@ export const getPatientAmbulanceCurrentBooking = (patientId) =>
 
 export const getPatientAmbulancePastBooking = (patientId) =>
   API.get(`/admin/pastBookingPatient?patientId=${patientId}`);
+
 
 //******************************************************************* */ 
 

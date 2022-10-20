@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { AdminContext } from "../../context/adminContext";
 import AdminNavbar from "../AdminNavbar/AdminNavbar";
@@ -8,14 +8,15 @@ import PharmaData from "../Tables/PharmaDataTable";
 
 const PharmaManage = () => {
   const { pharma, setPharma } = useContext(AdminContext);
-  
-  if (pharma === null) {
+
+  useEffect(() => {
     const fetchData = async () => {
       const res = await AllPharmas();
       setPharma(res.data.details);
     };
     fetchData();
-  }
+  }, [pharma])
+  
 
   return (
     <div className="parent">

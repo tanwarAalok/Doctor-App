@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AdminContext } from "../../context/adminContext";
 import AdminNavbar from "../AdminNavbar/AdminNavbar";
 import { AllDoctors } from "../Axios/apis";
@@ -8,13 +8,13 @@ import DoctorsData from "../Tables/DoctorDataTable";
 const DoctorManage = () => {
   const { doctors, setDoctors } = useContext(AdminContext);
   
-  if (doctors === null) {
-      const fetchData = async () => {
-        const response = await AllDoctors();
-        setDoctors(response.data.details);
-      }
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await AllDoctors();
+      setDoctors(response.data.details);
+    }
     fetchData();
-  }
+  }, [doctors]);
 
   return (
     <div className="parent">

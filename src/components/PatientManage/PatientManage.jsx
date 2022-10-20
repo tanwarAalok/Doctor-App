@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminNavbar from "../AdminNavbar/AdminNavbar";
 import "./PatientManage.css";
 import SideBar from "../SideBar/SideBar";
@@ -11,14 +11,14 @@ const PatientManage = () => {
 
   const { patients, setPatients } = useContext(AdminContext);
 
-  if (patients === null) {
+  useEffect(() => {
     const fetchData = async () => {
       const response = await AllPatients();
       setPatients(response.data.details);
     };
     fetchData();
-  }
-  
+  }, [patients]);
+
 
   return (
     <div className="parent">

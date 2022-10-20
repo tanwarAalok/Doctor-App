@@ -1,46 +1,19 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { doctorManage } from "../Axios/apis";
 
-const DummyData = [
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    clinic: "The Healing Clinic",
-    speciality: "Surgeon",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    clinic: "The Healing Clinic",
-    speciality: "Surgeon",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    clinic: "The Healing Clinic",
-    speciality: "Surgeon",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    clinic: "The Healing Clinic",
-    speciality: "Surgeon",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    clinic: "The Healing Clinic",
-    speciality: "Surgeon",
-    action: "Block",
-  },
-];
 
 const DoctorsData = ({ data }) => {
+
+  const manageDoctor = async (id, value) => {
+    const jsonData = {
+      id,
+      isBlock: value,
+    };
+    await doctorManage(jsonData);
+  };
+
   const navigate = useNavigate();
   return (
     <Table borderless responsive hover>
@@ -67,7 +40,6 @@ const DoctorsData = ({ data }) => {
         {data.map((data, id) => (
           <tr
             key={id}
-            onClick={() => navigate(`/doctor/${data._id}`)}
             style={{
               fontWeight: "400",
               fontSize: "1rem",
@@ -76,11 +48,21 @@ const DoctorsData = ({ data }) => {
               cursor: "pointer",
             }}
           >
-            <td style={{textTransform: "capitalize"}}>{data.name}</td>
+            <td
+              onClick={() => navigate(`/patient/${data._id}`)}
+              style={{ textTransform: "capitalize" }}
+            >
+              {data.name}
+            </td>
             <td>{data.phone}</td>
             <td>{data.clinic.clinicName}</td>
             <td>{data.speciality}</td>
-            <td>{data.isBlock ? "Block" : "Not Block"}</td>
+            <td
+              onClick={() => manageDoctor(data?._id, !data?.isBlock)}
+              style={{ color: data?.isBlock ? "red" : "green" }}
+            >
+              {data?.isBlock ? "Block" : "Unblock"}
+            </td>
           </tr>
         ))}
       </tbody>

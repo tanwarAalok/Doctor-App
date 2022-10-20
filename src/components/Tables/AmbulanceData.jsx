@@ -1,47 +1,19 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { ambulanceManage } from "../Axios/apis";
 
-const DummyData = [
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    toa: "Basic Ambulance",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    toa: "Advanced Ambulance",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    toa: "Basic Ambulance",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    toa: "Advanced Ambulance",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    toa: "Basic Ambulance",
-    action: "Block",
-  },
-  {
-    name: "Sophia Thomas",
-    phone: 8356748976,
-    toa: "Advanced Ambulance",
-    action: "Block",
-  },
-];
 
 const AmbulanceData = ({ data }) => {
+
+  const manageAmbulance = async (id, value) => {
+    const jsonData = {
+      id,
+      isBlock: value,
+    };
+    await ambulanceManage(jsonData);
+  };
+
   const navigate = useNavigate();
   return (
     <Table borderless responsive hover>
@@ -67,7 +39,6 @@ const AmbulanceData = ({ data }) => {
         {data.map((data, id) => (
           <tr
             key={id}
-            onClick={() => navigate(`/ambulance/${data.id}`)}
             style={{
               fontWeight: "400",
               fontSize: "1rem",
@@ -76,10 +47,17 @@ const AmbulanceData = ({ data }) => {
               cursor: "pointer",
             }}
           >
-            <td>{data.driverName}</td>
+            <td onClick={() => navigate(`/ambulance/${data.id}`)}>
+              {data.driverName}
+            </td>
             <td>{data.phoneNumber}</td>
             <td>{data.Ambulancetype}</td>
-            <td>{data.action ? "Block" : "Not Block"}</td>
+            <td
+              onClick={() => manageAmbulance(data?.id, !data?.isBlock)}
+              style={{ color: data?.isBlock ? "red" : "green" }}
+            >
+              {data?.isBlock ? "Block" : "Unblock"}
+            </td>
           </tr>
         ))}
       </tbody>
