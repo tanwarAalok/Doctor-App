@@ -26,7 +26,7 @@ function App() {
       <Route path="/criteria" element={<CriteriaComponent />} />
       <Route path="/patient/:patientId" element={<PatientDetail />} />
       <Route path="/doctor/:doctorId" element={<DoctorsDetail />} />
-      <Route path="/pharmacy/:pharmaId" element={<PharmaDetail />} />
+      <Route path="/pharma/:pharmaId" element={<PharmaDetail />} />
       <Route path="/ambulance/:ambulanceId" element={<AmbulanceDetails />} />
     </Routes>
   );

@@ -8,6 +8,7 @@
     position: fixed;
     background-color: white;
     margin-left: 0px !important;
+    overflow: visible;
     z-index: 1;
 }
 .profile-notification-container{
@@ -30,6 +31,7 @@
     color: #939393;
 }
 
+
 .search-main{
     width: 60%;
     height: 60px;
@@ -37,6 +39,35 @@
     display: flex;
     align-items: center;
     margin-left: 10rem;
+}
+
+.suggestion{
+    background-color: white;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 70px;
+    left: 160px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.suggestion::-webkit-scrollbar{
+    display: none;
+}
+
+.dataItem{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+.dataItem:hover{
+    background-color: lightgray !important;
+}
+.dataItem p{
+    margin-left: 10px;
 }
 
 .rsearch-button-icon {

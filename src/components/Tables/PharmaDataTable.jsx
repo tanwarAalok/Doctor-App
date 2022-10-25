@@ -49,7 +49,7 @@ const PharmaData = ({ data }) => {
             }}
           >
             <td
-              onClick={() => navigate(`/pharmacy/${data.id}`)}
+              onClick={() => navigate(`/pharma/${data.id}`)}
               style={{ textTransform: "capitalize" }}
             >
               {data.Pharmacyname}
