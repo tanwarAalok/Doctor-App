@@ -1,14 +1,13 @@
 .landing-main {
-  grid-gap: 0;
-  background-color: #e5e5e5;
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.landing-title {
+
+
+/* .landing-title {
   font-family: Nunito;
   font-style: normal;
   font-weight: 800;
@@ -118,4 +117,4 @@
     font-size: 13px;
     margin-top: 15px;
   }
-}
+} */

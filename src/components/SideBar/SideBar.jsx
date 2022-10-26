@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "react-bootstrap-drawer/lib/style.css";
 import { NavLink } from "react-router-dom";
 import { Drawer } from "react-bootstrap-drawer";
@@ -6,14 +6,13 @@ import Logo from "../../assets/cardiogram.png";
 import LogoutIcon from "../../assets/logout icon.png";
 import "./sidebar.css";
 
-
 const SideBar = () => {
   return (
     <Drawer id="sidebar" className="sidebar-main">
       <Drawer.Overflow>
         <Drawer.ToC style={{ overflow: "hidden" }}>
           <Drawer.Header
-            href="/"
+            href="/dashboard"
             className="menu-item-header"
             title="DoctorApp"
           >
@@ -185,6 +184,12 @@ const SideBar = () => {
             <Drawer.Item>
               <NavLink
                 to="/"
+                onClick={() => {
+                  localStorage.removeItem('token');
+                  localStorage.removeItem('userId');
+                  localStorage.removeItem('userName');
+                  localStorage.removeItem('userEmail');
+                }}
                 className={({ isActive }) =>
                   isActive ? "NavLink-active" : "NavLink"
                 }

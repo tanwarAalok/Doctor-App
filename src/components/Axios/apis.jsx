@@ -3,6 +3,8 @@ const API = axios.create({
   baseURL: "https://doc00.herokuapp.com",
 });
 
+export const Login = (data) => API.post(`/admin/login`, data);
+
 export const dashboard = (date) => API.get(`/admin/dashboard?date=${date}`);
 
 export const AllPatients = () => API.get(`/admin/patients?pg=1&1m=10`);
