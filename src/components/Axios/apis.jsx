@@ -11,6 +11,7 @@ export const AllPatients = () => API.get(`/admin/patients?pg=1&1m=10`);
 export const AllDoctors = () => API.get(`/admin/doctors`);
 export const AllPharmas = () => API.get(`/admin/pharmacies`);
 export const AllAmbulance = () => API.get(`/admin/ambulances`);
+export const SearchQuery = (q) => API.get(`/admin/search?name=${q}`);
 
 //******************************************************************* */ 
 

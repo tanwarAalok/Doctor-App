@@ -1,22 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import './AdminNavbar.css'
 import AdminPic from "../../assets/adsimage.png";
-import SEARCH_DATA from "../../assets/MOCK_DATA.json";
 import { Link } from "react-router-dom"
 import {GrFormClose} from "react-icons/gr"
+import { SearchQuery } from '../Axios/apis';
 
 const AdminNavbar = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
-  const handleFilter = (event) => {
+  const checkType = (data) => {
+    if (data?.clinic !== undefined) return `/doctor/${data?._id}`;
+    else if (data?.healthVaultId !== undefined) return `/patient/${data?.id}`;
+    else if (data?.driverName !== undefined) return `/ambulance/${data?.id}`;
+    else return `/pharma/${data?.id}`;
+  };
+
+  const assignName = (data) => {
+    if (data?.clinic !== undefined) return `${data?.name}`;
+    else if (data?.healthVaultId !== undefined) return `${data?.name}`;
+    else if (data?.driverName !== undefined) return `${data?.driverName}`;
+    else return `${data?.Pharmacyname}`;
+  }
+
+  const handleFilter = async (event) => {
     const searchWord = event?.target?.value;
     setWordEntered(searchWord);
 
-    const newFilter = SEARCH_DATA.filter((value) => {
-      return value.name?.toLowerCase().includes(searchWord?.toLowerCase());
+    const { data } = await SearchQuery(searchWord);
+
+    const newFilter = data?.details;
+    
+    newFilter.forEach(element => {
+      element.type = checkType(element);
+      element.name = assignName(element);
     });
 
     if (searchWord === "") {
@@ -30,6 +49,8 @@ const AdminNavbar = () => {
     setFilteredData([]);
     setWordEntered("");
   };
+
+  
 
 
   return (
@@ -55,7 +76,7 @@ const AdminNavbar = () => {
           <div className="suggestion">
             {filteredData.map((value, key) => {
               return (
-                <Link to={`/${value.type}/${value.id}`} key={key} className="dataItem">
+                <Link to={value?.type} key={key} className="dataItem">
                   <p>{value.name}</p>
                 </Link>
               );

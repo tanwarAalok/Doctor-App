@@ -32,8 +32,7 @@ const monthsArray = Array.from({ length: 12 }, (item, i) => {
 });
 
 const ClientDashboard = () => {
-  const userData = localStorage.getItem("user");
-  console.log("USSER: ",userData);
+
   const [monthValue, setMonthValue] = useState(0);
   const [yearValue, setYearValue] = useState(2022);
   const [dashboardData, setDashboardData] = useState(null);

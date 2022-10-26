@@ -63,6 +63,7 @@ const PatientDetail = () => {
     else fetchAmbulanceBookings();
   }, [table]);
 
+
   
   return (
     <div className="parent">
