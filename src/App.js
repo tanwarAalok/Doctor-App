@@ -28,6 +28,7 @@ function App() {
       <Route path="/doctor/:doctorId" element={<DoctorsDetail />} />
       <Route path="/pharma/:pharmaId" element={<PharmaDetail />} />
       <Route path="/ambulance/:ambulanceId" element={<AmbulanceDetails />} />
+      <Route path="*" element={<h1>Page Not Found...</h1>} />
     </Routes>
   );
 }

@@ -46,7 +46,7 @@ const ClientDashboard = () => {
 
       const res = await dashboard(date);
       setDashboardData(res.data);
-
+      console.log('HERE')
     }
     fetchData();
   }, [monthValue, yearValue])
